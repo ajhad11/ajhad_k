@@ -49,7 +49,7 @@ export default function About() {
               {/* Image box container */}
               <div className="relative w-full h-full bg-[#020B1C] rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
                 <img
-                  src="/profile.jpg"
+                  src="public/assets/profile.jpg"
                   alt="Ajhad K - Professional Profile"
                   className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
                   loading="lazy"

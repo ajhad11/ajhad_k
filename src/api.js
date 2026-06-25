@@ -73,8 +73,8 @@ const FALLBACK_DATA = {
       id: 2,
       title: 'E-Library Management System',
       description: 'Digital library platform for managing books, student records, issue and return tracking, and search functionality.',
-      image: '/images/library.jpg',
-      technologies_list: ['Flutter', 'SQLite', 'Dart'],
+      image: 'public/assets/E_library_management.png',
+      technologies_list: ['HTML', 'CSS', 'JS'],
       technologies: 'Flutter SQLite Dart',
       live_link: 'https://your-demo-link.com',
       github_link: 'https://github.com/yourusername/e-library',
@@ -84,9 +84,9 @@ const FALLBACK_DATA = {
       id: 3,
       title: 'Event Management System',
       description: 'Complete event planning and booking platform with vendor management, event scheduling, and customer inquiries.',
-      image: '/images/event-management.jpg',
-      technologies_list: ['React', 'Node.js', 'MongoDB'],
-      technologies: 'React Node.js MongoDB',
+      image: 'public/assets/event_management.png',
+      technologies_list: ['React', 'dajngo', 'PQSQL'],
+      technologies: 'React dajngo PQSQL',
       live_link: 'https://your-demo-link.com',
       github_link: 'https://github.com/yourusername/event-management',
       category: 'React'
@@ -96,8 +96,8 @@ const FALLBACK_DATA = {
     {
       title: 'Web Development Internship Certificate',
       issuing_organization: 'Verveox Technologies',
-      image: 'https://images.unsplash.com/photo-1589330694653-ded6df53f7ec?auto=format&fit=crop&w=800&q=80',
-      verification_link: 'https://verveox.com/verify/cert123',
+      image: 'https://go.fliplink.me/view/7DD871AA-32FE-466D-A2A7-1E7F312DC70D',
+      verification_link: 'https://go.fliplink.me/view/7DD871AA-32FE-466D-A2A7-1E7F312DC70D',
       date_issued: 'May 2026'
     },
     {

@@ -21,9 +21,8 @@ const FALLBACK_DATA = {
     { name: 'Python', category: 'backend', proficiency: 90 },
     { name: 'Django', category: 'backend', proficiency: 88 },
     { name: 'REST API', category: 'backend', proficiency: 90 },
-    { name: 'Node.js', category: 'backend', proficiency: 75 },
+    { name: 'Hive', category: 'darabase', proficiency: 65 },
     { name: 'PostgreSQL', category: 'database', proficiency: 85 },
-    { name: 'MySQL', category: 'database', proficiency: 80 },
     { name: 'SQLite', category: 'database', proficiency: 90 },
     { name: 'Flutter', category: 'mobile', proficiency: 88 },
     { name: 'Dart', category: 'mobile', proficiency: 85 },
@@ -33,11 +32,25 @@ const FALLBACK_DATA = {
     { name: 'Figma', category: 'tools', proficiency: 75 },
   ],
   experience: [
+
     {
+      job_title: 'Flutter Developer Intern',
+      company: 'Recongal Technologies',
+      location: 'Calicut, Kerala',
+      duration: 'May 2025 - Aug 2026',
+      responsibilities_list: [
+        'Mobile App Development',
+        'State Management (Bloc / Provider)',
+        'UI/UX Implementation',
+        'App Store & Play Store Deployment'
+      ]
+    },
+
+        {
       job_title: 'Web Development Intern',
       company: 'Verveox Technologies',
       location: 'Remote / Calicut',
-      duration: 'Dec 2025 - May 2026',
+      duration: 'Dec 2025 - May 2025',
       responsibilities_list: [
         'Frontend Development',
         'Responsive Design',
@@ -45,20 +58,27 @@ const FALLBACK_DATA = {
         'Database Management'
       ]
     },
-    {
-      job_title: 'Junior Flutter Developer',
-      company: 'Appxone Technologies',
-      location: 'Calicut, Kerala',
-      duration: 'July 2025 - Nov 2025',
-      responsibilities_list: [
-        'Mobile App Development',
-        'State Management (Bloc / Provider)',
-        'UI/UX Implementation',
-        'App Store & Play Store Deployment'
-      ]
-    }
   ],
   projects: [
+   { id: 1,
+    title: 'Townseek',
+      description: 'TownSeek is a smart location-based application for discovering nearby businesses, services, and hospitals. It provides search, navigation, booking, and business management features in one platform.',
+      image: 'public/assets/townseek.png',
+      technologies_list: ['Flutter', 'Supabse', 'Provider', ],
+      technologies: 'Flutter Supabse Provider',
+    live_link: 'https://github.com/ajhad11/townseek',
+    github_link: 'https://github.com/ajhad11/townseek'
+    },
+    {
+      id: 1,
+      title: 'Gold Bill Management',
+      description: 'Gold Bill Management is a simple system for creating and managing gold wights bills. It ensures accurate billing, secure record-keeping, and easy transaction tracking.',
+      image: '/assets/gold_invertry.png',
+      technologies_list: ['Flutter', 'SQfile', 'Provider'],
+      technologies: 'Flutter SQfile Provider',
+      live_link: 'https://github.com/ajhad11/gold_billing_app',
+      github_link: 'https://github.com/ajhad11/gold_billing_app'
+    },
     {
       id: 1,
       title: 'Gold Inventory Management',
@@ -94,26 +114,20 @@ const FALLBACK_DATA = {
   ],
   certificates: [
     {
-      title: 'Web Development Internship Certificate',
-      issuing_organization: 'Verveox Technologies',
-      image: 'https://go.fliplink.me/view/7DD871AA-32FE-466D-A2A7-1E7F312DC70D',
-      verification_link: 'https://go.fliplink.me/view/7DD871AA-32FE-466D-A2A7-1E7F312DC70D',
-      date_issued: 'May 2026'
-    },
-    {
-      title: 'Python Certification',
-      issuing_organization: 'Python Institute / Coursera',
-      image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80',
-      verification_link: 'https://coursera.org/verify/python456',
-      date_issued: 'Oct 2025'
-    },
-    {
-      title: 'Flutter Development Certificate',
-      issuing_organization: 'Google / Udemy',
+      title: 'Flutter Development (A+)',
+      issuing_organization: 'Avodha Edutech Pvt. Ltd',
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
-      verification_link: 'https://udemy.com/certificate/flutter789',
-      date_issued: 'Jan 2026'
-    }
+      verification_link: '/assets/doc/AJHAD K_Certificate.pdf',
+      date_issued: 'Nov 2024'
+    },
+    {
+      title: 'Flutter Development with AI',
+      issuing_organization: 'Multysense EduTech',
+      image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80',
+      verification_link: '/assets/doc/Ajhad K - Artificial Intelligence Internship - Offer Letter.pdf',
+      date_issued: 'Nov 2025'
+    },
+
   ]
 };
 

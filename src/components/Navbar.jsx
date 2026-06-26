@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { FiSun, FiMoon, FiMenu, FiX } from 'react-icons/fi';
+import { FiMenu, FiX } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function Navbar({ theme, toggleTheme }) {
+export default function Navbar() {
   // Hook to track mobile drawer open/close state
   const [isOpen, setIsOpen] = useState(false);
   // Hook to track if the user has scrolled down the page
@@ -37,7 +37,7 @@ export default function Navbar({ theme, toggleTheme }) {
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? 'py-4 bg-black/90 dark:bg-black/90 light:bg-white/90 backdrop-blur-md border-b border-white/5 shadow-lg'
+          ? 'py-4 bg-black/90 backdrop-blur-md border-b border-white/5 shadow-lg'
           : 'py-6 bg-transparent'
       }`}
     >
@@ -74,15 +74,6 @@ export default function Navbar({ theme, toggleTheme }) {
 
         {/* Mobile controls */}
         <div className="flex lg:hidden items-center space-x-4">
-          {/* Light/Dark Toggle */}
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-full glass-card text-text-gray hover:text-white"
-            aria-label="Toggle Theme"
-          >
-            {theme === 'dark' ? <FiSun className="w-4 h-4" /> : <FiMoon className="w-4 h-4" />}
-          </button>
-          
           {/* Hamburger Menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -102,7 +93,7 @@ export default function Navbar({ theme, toggleTheme }) {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden w-full bg-black/95 dark:bg-black/95 light:bg-white/95 border-b border-white/5 backdrop-blur-lg"
+            className="lg:hidden w-full bg-black/95 border-b border-white/5 backdrop-blur-lg"
           >
             <div className="px-6 py-8 flex flex-col space-y-6">
               {menuItems.map((item) => (

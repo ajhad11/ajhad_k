@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-export default function ParticleBackground({ theme }) {
+export default function ParticleBackground() {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -25,9 +25,7 @@ export default function ParticleBackground({ theme }) {
         this.size = Math.random() * 2 + 0.5;
         this.speedX = Math.random() * 0.4 - 0.2;
         this.speedY = Math.random() * 0.4 - 0.2;
-        this.color = theme === 'light' 
-          ? `rgba(10, 132, 255, ${Math.random() * 0.15 + 0.05})`
-          : `rgba(10, 132, 255, ${Math.random() * 0.3 + 0.15})`;
+        this.color = `rgba(10, 132, 255, ${Math.random() * 0.3 + 0.15})`;
       }
 
       update() {
@@ -59,9 +57,7 @@ export default function ParticleBackground({ theme }) {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
       // Draw grid pattern (subtle tech look)
-      ctx.strokeStyle = theme === 'light' 
-        ? 'rgba(10, 132, 255, 0.02)' 
-        : 'rgba(255, 255, 255, 0.01)';
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.01)';
       ctx.lineWidth = 1;
       const gridSize = 100;
       for (let x = 0; x < canvas.width; x += gridSize) {
@@ -92,7 +88,7 @@ export default function ParticleBackground({ theme }) {
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < 120) {
-            const alpha = (1 - dist / 120) * (theme === 'light' ? 0.05 : 0.12);
+            const alpha = (1 - dist / 120) * 0.12;
             ctx.strokeStyle = `rgba(10, 132, 255, ${alpha})`;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
@@ -111,7 +107,7 @@ export default function ParticleBackground({ theme }) {
       window.removeEventListener('resize', resizeCanvas);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [theme]);
+  }, []);
 
   return (
     <canvas 

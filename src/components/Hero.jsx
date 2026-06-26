@@ -11,6 +11,7 @@ export default function Hero() {
     { name: 'Python', icon: <FaPython className="text-[#3776AB] w-6 h-6" />, pos: 'top-1/2 left-2/3', delay: 1.5 },
     { name: 'JavaScript', icon: <SiJavascript className="text-[#F7DF1E] w-6 h-6" />, pos: 'bottom-24 right-12', delay: 0.5 },
     { name: 'PostgreSQL', icon: <SiPostgresql className="text-[#336791] w-6 h-6" />, pos: 'top-12 right-1/3', delay: 2.5 }
+    
   ];
 
   return (
@@ -60,12 +61,14 @@ export default function Hero() {
               View Projects
             </a>
             
-            {/* Mock resume download link, points to contact for now */}
+            {/* Resume link */}
             <a
-              href="#contact"
+              href="/assets/doc/DOC-20260421-WA0046..pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-8 py-3.5 rounded-full font-medium text-sm text-white glass-card hover:bg-white/5 transition-all duration-300"
             >
-              Download Resume
+              View Resume
             </a>
           </div>
 

@@ -66,13 +66,13 @@ TEMPLATES = [
 WSGI_APPLICATION = 'backend.wsgi.application'
 
 # Database
-# Use SQLite by default for easy setup, support PostgreSQL via environment variables
+# Use SQLite by default for easy setup, support MySQL or PostgreSQL via environment variables
 DB_ENGINE = os.environ.get('DB_ENGINE', 'django.db.backends.sqlite3')
 DB_NAME = os.environ.get('DB_NAME', BASE_DIR / 'db.sqlite3')
-DB_USER = os.environ.get('DB_USER', '')
+DB_USER = os.environ.get('DB_USER', 'root')
 DB_PASSWORD = os.environ.get('DB_PASSWORD', '')
-DB_HOST = os.environ.get('DB_HOST', '')
-DB_PORT = os.environ.get('DB_PORT', '')
+DB_HOST = os.environ.get('DB_HOST', 'localhost')
+DB_PORT = os.environ.get('DB_PORT', '3306')
 
 if DB_ENGINE == 'django.db.backends.postgresql':
     DATABASES = {
@@ -85,11 +85,27 @@ if DB_ENGINE == 'django.db.backends.postgresql':
             'PORT': DB_PORT,
         }
     }
+elif DB_ENGINE == 'django.db.backends.mysql':
+    import pymysql
+    pymysql.install_as_MySQLdb()
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': DB_NAME,
+            'USER': DB_USER,
+            'PASSWORD': DB_PASSWORD,
+            'HOST': DB_HOST,
+            'PORT': DB_PORT,
+            'OPTIONS': {
+                'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            },
+        }
+    }
 else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': Path(DB_NAME) if isinstance(DB_NAME, str) else DB_NAME,
+            'NAME': Path(DB_NAME) if isinstance(DB_NAME, str) and (DB_NAME.endswith('.sqlite3') or DB_NAME == 'db.sqlite3') else BASE_DIR / 'db.sqlite3',
         }
     }
 

@@ -19,7 +19,7 @@ export default function Footer() {
         {/* Social Links */}
         <div className="flex items-center space-x-5">
           <a
-            href="https://github.com"
+            href="https://github.com/ajhad11"
             target="_blank"
             rel="noopener noreferrer"
             className="p-2.5 rounded-full glass-card text-text-gray hover:text-white hover:border-primary/40 transition-all duration-300"
@@ -37,7 +37,7 @@ export default function Footer() {
             <FaLinkedin className="w-4 h-4" />
           </a>
           <a
-            href="mailto:contact@example.com"
+            href="mailto:ajhadk453@gmail.com"
             className="p-2.5 rounded-full glass-card text-text-gray hover:text-white hover:border-primary/40 transition-all duration-300"
             aria-label="Email"
           >

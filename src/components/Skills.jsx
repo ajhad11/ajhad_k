@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { fetchSkills } from '../api';
-import { FiCode, FiServer, FiDatabase, FiSmartphone, FiCpu } from 'react-icons/fi';
+import { FiCode, FiServer, FiDatabase, FiSmartphone, FiCpu, FiLayers } from 'react-icons/fi';
 
 export default function Skills() {
   const [skills, setSkills] = useState([]);
@@ -9,17 +9,23 @@ export default function Skills() {
 
   useEffect(() => {
     fetchSkills().then(data => {
-      // Sort skills by category or order
-      setSkills(data);
+      // Map BLoC and Provider to 'state' category dynamically for UI categorization
+      const mapped = data.map(s => {
+        if (s.name === 'BLoC' || s.name === 'Provider') {
+          return { ...s, category: 'state' };
+        }
+        return s;
+      });
+      setSkills(mapped);
     });
   }, []);
 
   const categories = [
     { id: 'all', name: 'All Skills', icon: <FiCode /> },
-    { id: 'frontend', name: 'Frontend', icon: <FiCode /> },
+    { id: 'mobile', name: 'Mobile', icon: <FiSmartphone /> },
     { id: 'backend', name: 'Backend', icon: <FiServer /> },
     { id: 'database', name: 'Database', icon: <FiDatabase /> },
-    { id: 'mobile', name: 'Mobile', icon: <FiSmartphone /> },
+    { id: 'state', name: 'State Management', icon: <FiLayers /> },
     { id: 'tools', name: 'Tools', icon: <FiCpu /> },
   ];
 

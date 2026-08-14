@@ -46,13 +46,13 @@ export default function Contact() {
   };
 
   const contactInfo = [
-    { icon: <FiMail className="w-5 h-5" />, label: 'Email', value: 'ajhadk@example.com', href: 'mailto:ajhadk@example.com' },
+    { icon: <FiMail className="w-5 h-5" />, label: 'Email', value: 'ajhadk453@gmail.com', href: 'mailto:ajhadk453@gmail.com' },
     { icon: <FiPhone className="w-5 h-5" />, label: 'Phone', value: '+91 9876543210', href: 'tel:+919876543210' },
     { icon: <FiMapPin className="w-5 h-5" />, label: 'Location', value: 'Calicut, Kerala, India', href: null },
   ];
 
   const socialLinks = [
-    { icon: <FiGithub className="w-5 h-5" />, url: 'https://github.com', label: 'GitHub' },
+    { icon: <FiGithub className="w-5 h-5" />, url: 'https://github.com/ajhad11', label: 'GitHub' },
     { icon: <FiLinkedin className="w-5 h-5" />, url: 'https://linkedin.com', label: 'LinkedIn' },
   ];
 

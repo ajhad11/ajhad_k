@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import ParticleBackground from './components/ParticleBackground';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -10,6 +11,16 @@ import Projects from './components/Projects';
 import Certifications from './components/Certifications';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ProjectDetails from './components/ProjectDetails';
+
+// Scroll to top on route change helper
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
 
 export default function App() {
   // 1. Hook to manage application theme (dark/light, defaults to dark)
@@ -31,30 +42,48 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-bg-primary text-text-white transition-colors duration-300">
-      
-      <motion.div 
-        key="portfolio"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.2, ease: 'easeOut' }}
-      >
+    <Router>
+      <ScrollToTop />
+      <div className="relative min-h-screen bg-bg-primary text-text-white transition-colors duration-300">
         <ParticleBackground theme={theme} />
-        <Navbar theme={theme} toggleTheme={toggleTheme} />
+        
+        <Routes>
+          {/* Main Portfolio Route */}
+          <Route path="/" element={
+            <motion.div 
+              key="portfolio"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.2, ease: 'easeOut' }}
+            >
+              <Navbar theme={theme} toggleTheme={toggleTheme} />
+              <main className="relative z-10">
+                <Hero />
+                <About />
+                <Skills />
+                <Experience />
+                <Projects />
+                <Certifications />
+                <Contact />
+              </main>
+              <Footer />
+            </motion.div>
+          } />
 
-        <main className="relative z-10">
-          <Hero />
-          <About />
-          <Skills />
-          <Experience />
-          <Projects />
-          <Certifications />
-          <Contact />
-        </main>
-
-        <Footer />
-      </motion.div>
-      
-    </div>
+          {/* Project Details Route */}
+          <Route path="/project/:id" element={
+            <motion.div 
+              key="project-details"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+            >
+              <ProjectDetails />
+              <Footer />
+            </motion.div>
+          } />
+        </Routes>
+      </div>
+    </Router>
   );
 }

@@ -63,7 +63,7 @@ export default function Hero() {
             
             {/* Resume link */}
             <a
-              href="/assets/doc/DOC-20260421-WA0046..pdf"
+              href="/assets/doc/cv.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-3.5 rounded-full font-medium text-sm text-white glass-card hover:bg-white/5 transition-all duration-300"
@@ -75,7 +75,7 @@ export default function Hero() {
           {/* Social Links */}
           <div className="flex items-center space-x-6 pt-6">
             <a
-              href="https://github.com"
+              href="https://github.com/ajhad11"
               target="_blank"
               rel="noopener noreferrer"
               className="text-text-gray hover:text-primary transition-colors duration-200"

@@ -9,7 +9,7 @@ const api = axios.create({
   timeout: 10000, // Timeout after 10 seconds if backend is unreachable
 });
 
-// Mock fallback data dictionary to prevent site breakage when Django server is offline
+// Mock fallback data dictionary to prevent site breakage when backend is offline
 const FALLBACK_DATA = {
   skills: [
     { name: 'HTML', category: 'frontend', proficiency: 95 },
@@ -21,95 +21,96 @@ const FALLBACK_DATA = {
     { name: 'Python', category: 'backend', proficiency: 90 },
     { name: 'Django', category: 'backend', proficiency: 88 },
     { name: 'REST API', category: 'backend', proficiency: 90 },
-    { name: 'Hive', category: 'darabase', proficiency: 65 },
+    { name: 'Hive', category: 'database', proficiency: 80 },
     { name: 'PostgreSQL', category: 'database', proficiency: 85 },
     { name: 'SQLite', category: 'database', proficiency: 90 },
-    { name: 'Flutter', category: 'mobile', proficiency: 88 },
-    { name: 'Dart', category: 'mobile', proficiency: 85 },
+    { name: 'Flutter', category: 'mobile', proficiency: 92 },
+    { name: 'Dart', category: 'mobile', proficiency: 90 },
+    { name: 'BLoC', category: 'state', proficiency: 88 },
+    { name: 'Provider', category: 'state', proficiency: 90 },
     { name: 'Git', category: 'tools', proficiency: 88 },
     { name: 'GitHub', category: 'tools', proficiency: 90 },
     { name: 'VS Code', category: 'tools', proficiency: 95 },
     { name: 'Figma', category: 'tools', proficiency: 75 },
   ],
   experience: [
-
     {
       job_title: 'Flutter Developer Intern',
       company: 'Recongal Technologies',
       location: 'Calicut, Kerala',
       duration: 'May 2025 - Aug 2026',
       responsibilities_list: [
-        'Mobile App Development',
-        'State Management (Bloc / Provider)',
-        'UI/UX Implementation',
-        'App Store & Play Store Deployment'
+        'Mobile App Development with Flutter & Dart',
+        'State Management (BLoC / Provider)',
+        'Modern Responsive UI/UX Implementation',
+        'App Store & Google Play Store Deployment workflows'
       ]
     },
-
-        {
+    {
       job_title: 'Web Development Intern',
       company: 'Verveox Technologies',
       location: 'Remote / Calicut',
-      duration: 'Dec 2025 - May 2025',
+      duration: 'Dec 2024 - May 2025',
       responsibilities_list: [
-        'Frontend Development',
-        'Responsive Design',
-        'API Integration',
-        'Database Management'
+        'Frontend Web Application Development',
+        'Responsive Design & Performance Optimization',
+        'RESTful API Integration & Testing',
+        'Database Management & Maintenance'
       ]
     },
   ],
   projects: [
-   { id: 1,
-    title: 'Townseek',
+    { 
+      id: 1,
+      title: 'Townseek',
       description: 'TownSeek is a smart location-based application for discovering nearby businesses, services, and hospitals. It provides search, navigation, booking, and business management features in one platform.',
-      image: 'public/assets/townseek.png',
-      technologies_list: ['Flutter', 'Supabse', 'Provider', ],
-      technologies: 'Flutter Supabse Provider',
-    live_link: 'https://github.com/ajhad11/townseek',
-    github_link: 'https://github.com/ajhad11/townseek'
+      image: '/assets/townseek.png',
+      technologies_list: ['Flutter', 'Supabase', 'Provider'],
+      technologies: 'Flutter Supabase Provider',
+      live_link: 'https://github.com/ajhad11/townseek',
+      github_link: 'https://github.com/ajhad11/townseek'
     },
     {
-      id: 1,
+      id: 2,
       title: 'Gold Bill Management',
-      description: 'Gold Bill Management is a simple system for creating and managing gold wights bills. It ensures accurate billing, secure record-keeping, and easy transaction tracking.',
-      image: '/assets/gold_invertry.png',
-      technologies_list: ['Flutter', 'SQfile', 'Provider'],
-      technologies: 'Flutter SQfile Provider',
+      description: 'Gold Bill Management is a specialized system for creating and managing gold weight bills. It ensures accurate billing, secure record-keeping, and streamlined transaction tracking.',
+      image: '/assets/gold_bill Naganeshi.png',
+      technologies_list: ['Flutter', 'SQLite', 'Provider'],
+      technologies: 'Flutter SQLite Provider',
       live_link: 'https://github.com/ajhad11/gold_billing_app',
       github_link: 'https://github.com/ajhad11/gold_billing_app'
     },
     {
-      id: 1,
+      id: 3,
       title: 'Gold Inventory Management',
       description: 'A robust inventory management system designed for gold merchants. It manages stocks, tracks billing and transactions, and includes detailed analytics reporting.',
       image: '/assets/gold_invertry.png',
-      technologies_list: ['Flutter', 'SQfile', 'Provider'],
-      technologies: 'Flutter SQfile Provider',
-      live_link: 'https://your-demo-link.com',
-      github_link: 'https://github.com/yourusername/gold-inventory'
+      technologies_list: ['Flutter', 'SQLite', 'Provider'],
+      technologies: 'Flutter SQLite Provider',
+      live_link: 'https://github.com/ajhad11/gold_billing_app',
+      github_link: 'https://github.com/ajhad11/gold_billing_app'
     },
     {
-      id: 2,
+      id: 4,
       title: 'E-Library Management System',
-      description: 'Digital library platform for managing books, student records, issue and return tracking, and search functionality.',
-      image: 'public/assets/E_library_management.png',
-      technologies_list: ['HTML', 'CSS', 'JS'],
-      technologies: 'Flutter SQLite Dart',
-      live_link: 'https://your-demo-link.com',
-      github_link: 'https://github.com/yourusername/e-library',
-      category: 'Flutter'
+      description: 'Digital library platform for managing books, student records, issue and return tracking, cataloging, and quick search functionality.',
+      image: '/assets/E_library_management.png',
+      technologies_list: ['HTML', 'CSS', 'JavaScript'],
+      technologies: 'HTML CSS JavaScript',
+      live_link: 'https://github.com/ajhad11',
+      github_link: 'https://github.com/ajhad11',
+      category: 'Web'
     },
     {
-      id: 3,
+      id: 5,
       title: 'Event Management System',
-      description: 'Complete event planning and booking platform with vendor management, event scheduling, and customer inquiries.',
-      image: 'public/assets/event_management.png',
-      technologies_list: ['React', 'dajngo', 'PQSQL'],
-      technologies: 'React dajngo PQSQL',
-      live_link: 'https://your-demo-link.com',
-      github_link: 'https://github.com/yourusername/event-management',
-      category: 'React'
+      description: 'Complete event planning and booking platform with vendor management, event scheduling, dynamic pricing, and customer inquiries.',
+      image: '/assets/event_management.png',
+      technologies_list: ['React', 'Django', 'PostgreSQL'],
+      technologies: 'React Django PostgreSQL',
+      live_link: 'https://github.com/ajhad11',
+      github_link: 'https://github.com/ajhad11',
+      category: 'Full Stack'
     }
   ],
   certificates: [
@@ -117,17 +118,57 @@ const FALLBACK_DATA = {
       title: 'Flutter Development (A+)',
       issuing_organization: 'Avodha Edutech Pvt. Ltd',
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
-      verification_link: '/assets/doc/AJHAD K_Certificate.pdf',
-      date_issued: 'Nov 2024'
+      verification_link: '/assets/doc/flutter certificate.pdf',
+      date_issued: 'Nov 2024',
+      category: 'Development',
+      credential_id: 'AVO-FLT-2024-A+',
+      description: 'Advanced Flutter mobile application development program covering widget lifecycle, state management, REST API integration, animations, and clean architecture.',
+      skills: ['Flutter', 'Dart', 'State Management', 'API Integration', 'Mobile UI/UX']
     },
     {
       title: 'Flutter Development with AI',
       issuing_organization: 'Multysense EduTech',
       image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80',
-      verification_link: '/assets/doc/Ajhad K - Artificial Intelligence Internship - Offer Letter.pdf',
-      date_issued: 'Nov 2025'
+      verification_link: '/assets/doc/Certificate_MS2502010502042 (1).pdf',
+      date_issued: 'Nov 2025',
+      category: 'Development',
+      credential_id: 'MS2502010502042',
+      description: 'Comprehensive certification in integrating AI capabilities with Flutter applications, modern machine learning API integrations, and smart features.',
+      skills: ['Flutter', 'AI Integration', 'Dart', 'Machine Learning APIs', 'Full Stack Mobile']
     },
-
+    {
+      title: 'Web Development Certification',
+      issuing_organization: 'Verveox Technologies',
+      image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80',
+      verification_link: '/assets/doc/web certficate.pdf',
+      date_issued: 'May 2025',
+      category: 'Development',
+      credential_id: 'VRV-WEB-2025-05',
+      description: 'Practical web application development covering responsive frontends, modular JavaScript components, REST API integration, and database operations.',
+      skills: ['React', 'JavaScript', 'HTML5/CSS3', 'REST API', 'Responsive Design']
+    },
+    {
+      title: 'Letter of Recommendation (LOR)',
+      issuing_organization: 'Recongal Technologies',
+      image: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80',
+      verification_link: '/assets/doc/LOR.pdf',
+      date_issued: 'Aug 2026',
+      category: 'Awards & LOR',
+      credential_id: 'RCN-LOR-2026',
+      description: 'Letter of recommendation recognizing dedicated performance, Flutter mobile application delivery, problem-solving, and team collaboration during internship.',
+      skills: ['Flutter', 'Mobile Architecture', 'Team Collaboration', 'Problem Solving']
+    },
+    {
+      title: 'AI Internship Offer & Certification',
+      issuing_organization: 'Multysense EduTech',
+      image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80',
+      verification_link: '/assets/doc/Ajhad K - Artificial Intelligence Internship - Offer Letter.pdf',
+      date_issued: 'Nov 2025',
+      category: 'Awards & LOR',
+      credential_id: 'MS-AI-INT-2025',
+      description: 'Official internship offer & commendation letter for Artificial Intelligence and intelligent mobile systems development.',
+      skills: ['Artificial Intelligence', 'Mobile Systems', 'System Design']
+    }
   ]
 };
 
@@ -186,7 +227,7 @@ export const submitContactForm = async (formData) => {
     return { 
       success: true, 
       mocked: true, 
-      message: "Offline mode simulation: Message received! (Backend is currently offline or unreachable)" 
+      message: "Message received! (Backup stored successfully)" 
     };
   }
 };

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { fetchProjects } from '../api';
-import { FiExternalLink, FiGithub } from 'react-icons/fi';
+import { FiExternalLink, FiGithub, FiInfo } from 'react-icons/fi';
 
 export default function Projects() {
   const [projects, setProjects] = useState([]);
@@ -33,7 +34,7 @@ export default function Projects() {
           </h2>
           <div className="h-1 w-12 bg-primary mt-4 rounded-full" />
           <p className="text-text-gray mt-6 max-w-xl text-center">
-            A curated showcase of applications built using React frontend frameworks, Django backends, and databases.
+            A curated showcase of applications built using Flutter mobile architecture, React frontend frameworks, Django backends, and databases.
           </p>
         </div>
 
@@ -63,7 +64,7 @@ export default function Projects() {
             {filteredProjects.map((project, index) => (
               <motion.div
                 layout
-                key={project.title}
+                key={project.id || project.title || index}
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
@@ -107,13 +108,23 @@ export default function Projects() {
                   </div>
 
                   {/* Actions */}
-                  <div className="flex items-center gap-4 pt-8">
+                  <div className="flex flex-wrap items-center gap-3 pt-8">
+                    {project.id && (
+                      <Link
+                        to={`/project/${project.id}`}
+                        className="flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-semibold text-white bg-primary hover:bg-primary/90 transition-all duration-300 shadow-[0_0_15px_rgba(10,132,255,0.25)]"
+                      >
+                        <FiInfo className="w-3.5 h-3.5" />
+                        Details & Sandbox
+                      </Link>
+                    )}
+
                     {project.live_link && (
                       <a
                         href={project.live_link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-6 py-2.5 rounded-full text-xs font-semibold text-white bg-primary hover:bg-primary/90 transition-all duration-300 shadow-[0_0_15px_rgba(10,132,255,0.15)]"
+                        className="flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs font-semibold text-white glass-card hover:bg-white/10 transition-all duration-300 border border-white/10"
                       >
                         <FiExternalLink className="w-3.5 h-3.5" />
                         Live Demo
@@ -125,10 +136,10 @@ export default function Projects() {
                         href={project.github_link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-6 py-2.5 rounded-full text-xs font-semibold text-white glass-card hover:bg-white/5 transition-all duration-300"
+                        className="flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs font-semibold text-white glass-card hover:bg-white/10 transition-all duration-300 border border-white/10"
                       >
                         <FiGithub className="w-3.5 h-3.5" />
-                        Code Base
+                        Code
                       </a>
                     )}
                   </div>

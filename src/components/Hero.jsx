@@ -93,7 +93,7 @@ export default function Hero() {
               <FaLinkedin className="w-6 h-6" />
             </a>
             <a
-              href="mailto:ajhadk453@gmail.com"
+              href="mailto:ajhadk8@gmail.com"
               className="text-text-gray hover:text-primary transition-colors duration-200"
               aria-label="Email"
             >

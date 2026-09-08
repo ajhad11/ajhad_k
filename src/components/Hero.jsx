@@ -2,6 +2,7 @@ import React from 'react';
 import { FaGithub, FaLinkedin, FaEnvelope, FaReact, FaPython } from 'react-icons/fa';
 import { SiDjango, SiFlutter, SiJavascript, SiPostgresql } from 'react-icons/si';
 import { motion } from 'framer-motion';
+import { scrollToSection } from './Navbar';
 
 export default function Hero() {
   const floatingSkills = [
@@ -56,7 +57,11 @@ export default function Hero() {
           <div className="flex flex-wrap gap-4 pt-4">
             <a
               href="#projects"
-              className="px-8 py-3.5 rounded-full font-medium text-sm text-white bg-primary hover:bg-primary/95 hover:shadow-[0_0_20px_rgba(10,132,255,0.4)] transition-all duration-300"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('projects');
+              }}
+              className="px-8 py-3.5 rounded-full font-medium text-sm text-white bg-primary hover:bg-primary/95 hover:shadow-[0_0_20px_rgba(10,132,255,0.4)] transition-all duration-300 cursor-pointer"
             >
               View Projects
             </a>

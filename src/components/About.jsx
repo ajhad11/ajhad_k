@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FiMail, FiCheckCircle } from 'react-icons/fi';
+import { scrollToSection } from './Navbar';
 
 export default function About() {
   const stats = [
@@ -95,7 +96,11 @@ export default function About() {
               <div>
                 <a
                   href="#contact"
-                  className="px-6 py-2.5 rounded-full text-xs font-semibold text-white bg-primary hover:bg-primary/90 transition-all flex items-center gap-2 shadow-[0_0_15px_rgba(10,132,255,0.25)]"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection('contact');
+                  }}
+                  className="px-6 py-2.5 rounded-full text-xs font-semibold text-white bg-primary hover:bg-primary/90 transition-all flex items-center gap-2 shadow-[0_0_15px_rgba(10,132,255,0.25)] cursor-pointer"
                 >
                   <FiMail className="w-3.5 h-3.5" />
                   Get In Touch

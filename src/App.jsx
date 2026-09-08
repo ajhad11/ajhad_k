@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import ParticleBackground from './components/ParticleBackground';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -23,17 +23,20 @@ function ScrollToTop() {
 }
 
 export default function App() {
-  // 1. Hook to manage application theme (dark/light, defaults to dark)
-  const [theme, setTheme] = useState('dark');
+  // 1. Hook to manage application theme with localStorage persistence (defaults to dark)
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('portfolio-theme') || 'dark';
+  });
 
   // Synchronizes the theme state with the DOM document root element class list
   useEffect(() => {
     const root = document.documentElement;
     if (theme === 'light') {
-      root.classList.add('light'); // Append light theme variables selector class
+      root.classList.add('light');
     } else {
-      root.classList.remove('light'); // Remove light theme class to default to dark properties
+      root.classList.remove('light');
     }
+    localStorage.setItem('portfolio-theme', theme);
   }, [theme]);
 
   // Switches between light and dark themes
@@ -47,6 +50,9 @@ export default function App() {
       <div className="relative min-h-screen bg-bg-primary text-text-white transition-colors duration-300">
         <ParticleBackground theme={theme} />
         
+        {/* Global Navbar */}
+        <Navbar theme={theme} toggleTheme={toggleTheme} />
+
         <Routes>
           {/* Main Portfolio Route */}
           <Route path="/" element={
@@ -56,7 +62,6 @@ export default function App() {
               animate={{ opacity: 1 }}
               transition={{ duration: 1.2, ease: 'easeOut' }}
             >
-              <Navbar theme={theme} toggleTheme={toggleTheme} />
               <main className="relative z-10">
                 <Hero />
                 <About />
@@ -82,6 +87,9 @@ export default function App() {
               <Footer />
             </motion.div>
           } />
+
+          {/* Fallback redirect to prevent blank page on unknown hash routes */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
     </Router>

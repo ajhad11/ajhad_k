@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HashRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import ParticleBackground from './components/ParticleBackground';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -11,7 +10,6 @@ import Projects from './components/Projects';
 import Certifications from './components/Certifications';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import ProjectDetails from './components/ProjectDetails';
 
 // Scroll to top on route change helper
 function ScrollToTop() {
@@ -35,8 +33,6 @@ export default function App() {
     <Router>
       <ScrollToTop />
       <div className="relative min-h-screen bg-bg-primary text-text-white transition-colors duration-300">
-        <ParticleBackground />
-        
         {/* Global Navbar */}
         <Navbar />
 
@@ -58,19 +54,6 @@ export default function App() {
                 <Certifications />
                 <Contact />
               </main>
-              <Footer />
-            </motion.div>
-          } />
-
-          {/* Project Details Route */}
-          <Route path="/project/:id" element={
-            <motion.div 
-              key="project-details"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
-            >
-              <ProjectDetails />
               <Footer />
             </motion.div>
           } />

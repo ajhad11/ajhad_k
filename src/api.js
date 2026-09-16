@@ -31,7 +31,6 @@ const FALLBACK_DATA = {
     { name: 'Git', category: 'tools', proficiency: 88 },
     { name: 'GitHub', category: 'tools', proficiency: 90 },
     { name: 'VS Code', category: 'tools', proficiency: 95 },
-    { name: 'Figma', category: 'tools', proficiency: 75 },
   ],
   experience: [
     {
@@ -60,6 +59,38 @@ const FALLBACK_DATA = {
     },
   ],
   projects: [
+
+    {
+      id: 1,
+      title: 'Gold Bill Management',
+      description: 'Gold Bill Management is a specialized system for creating and managing gold weight bills. It ensures accurate billing, secure record-keeping, and streamlined transaction tracking.',
+      image: '/assets/gold_bill Naganeshi.png',
+      technologies_list: ['Flutter', 'SQLite', 'Provider'],
+      technologies: 'Flutter SQLite Provider',
+      live_link: 'https://github.com/ajhad11/gold_applicaion',
+      github_link: 'https://github.com/ajhad11/gold_applicaion'
+    },
+    {
+    id: 4,
+    title: "TripSettle",
+    description: "TripSettle makes group trip expenses simple by tracking spending, splitting bills, and calculating balances.Share expenses, track contributions, and settle payments easily with your travel group.",
+    image: "/assets/tripsettle.png",
+    technologies_list: ["Flutter", "Supabase", "PostgreSQL"],
+    technologies: "Flutter Supabase PostgreSQL",
+    live_link: "https://github.com/ajhad11/tripsettle",
+    github_link: 'https://github.com/ajhad11/tripsettle',
+
+    },
+  {
+    id: 5,
+    title: "Construction Management System",
+    description: "A comprehensive construction management system for project planning, resource allocation, task tracking, and real-time collaboration among teams.",
+    image: "/assets/construction.png",
+    technologies_list: ["Flutter", "Supabase", "PostgreSQL"],
+    technologies: "Flutter Supabase PostgreSQL",
+    live_link: "https://github.com/ajhad11/construction_app",
+    github_link: 'https://github.com/ajhad11/construction_app',
+  },
     {
       id: 1,
       title: 'Townseek',
@@ -71,18 +102,7 @@ const FALLBACK_DATA = {
       github_link: 'https://github.com/ajhad11/townseek'
     },
     {
-      id: 2,
-      title: 'Gold Bill Management',
-      description: 'Gold Bill Management is a specialized system for creating and managing gold weight bills. It ensures accurate billing, secure record-keeping, and streamlined transaction tracking.',
-      image: '/assets/gold_bill Naganeshi.png',
-      technologies_list: ['Flutter', 'SQLite', 'Provider'],
-      technologies: 'Flutter SQLite Provider',
-      live_link: 'https://github.com/ajhad11/gold_applicaion',
-      github_link: 'https://github.com/ajhad11/gold_applicaion'
-    },
-
-    {
-      id: 4,
+      id: 3,
       title: 'E-Library Management System',
       description: 'Digital library platform for managing books, student records, issue and return tracking, cataloging, and quick search functionality.',
       image: '/assets/E_library_management.png',
@@ -92,8 +112,9 @@ const FALLBACK_DATA = {
       github_link: 'https://github.com/ajhad11',
       category: 'Web'
     },
+
     // {
-    //   id: 5,
+    //   id: 4,
     //   title: 'Event Management System',
     //   description: 'Complete event planning and booking platform with vendor management, event scheduling, dynamic pricing, and customer inquiries.',
     //   image: '/assets/event_management.png',
@@ -103,27 +124,6 @@ const FALLBACK_DATA = {
     //   github_link: 'https://github.com/ajhad11',
     //   category: 'Full Stack'
     // },
-     {
-      id: 6,
-      title: "TripSettle",
-      description: "TripSettle makes group trip expenses simple by tracking spending, splitting bills, and calculating balances.Share expenses, track contributions, and settle payments easily with your travel group.",
-      image: "/assets/tripsettle.png",
-      technologies_list: ["Flutter", "Supabase", "PostgreSQL"],
-      technologies: "Flutter Supabase PostgreSQL",
-      live_link: "https://github.com/ajhad11/tripsettle",
-      github_link: 'https://github.com/ajhad11/tripsettle',
-
-    },
-    {
-      id: 7,
-      title: "Construction Management System",
-      description: "A comprehensive construction management system for project planning, resource allocation, task tracking, and real-time collaboration among teams.",
-      image: "/assets/construction.png",
-      technologies_list: ["Flutter", "Supabase", "PostgreSQL"],
-      technologies: "Flutter Supabase PostgreSQL",
-      live_link: "https://github.com/ajhad11/construction_app",
-      github_link: 'https://github.com/ajhad11/construction_app',
-    }
   ],
   certificates: [
     {

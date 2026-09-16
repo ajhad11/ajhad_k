@@ -23,6 +23,8 @@ const FALLBACK_DATA = {
     { name: 'REST API', category: 'backend', proficiency: 90 },
     { name: 'Hive', category: 'database', proficiency: 80 },
     { name: 'PostgreSQL', category: 'database', proficiency: 85 },
+    { name: 'MySQL', category: 'database', proficiency: 75 },
+
     { name: 'SQLite', category: 'database', proficiency: 90 },
     { name: 'Flutter', category: 'mobile', proficiency: 92 },
     { name: 'Dart', category: 'mobile', proficiency: 90 },

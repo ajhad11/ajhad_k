@@ -80,6 +80,22 @@ export default function ProjectDetails() {
           "Customer booking portal with dynamic pricing calculations",
           "Interactive calendar displaying slot and venue bookings"
         ];
+      } else if (titleLower.includes('tripsettle')) {
+        features = [
+          "Group expense tracking with multi-person split calculation engine",
+          "Automated debt simplification to minimize total repayment transactions",
+          "Supabase real-time database sync for instant updates across devices",
+          "Categorical expense breakdowns with visual analytics charts",
+          "Settlement reminders and offline transaction recording"
+        ];
+      } else if (titleLower.includes('construction')) {
+        features = [
+          "Real-time site project planning and milestone tracking dashboard",
+          "Resource and labor allocation management with progress metrics",
+          "Material requisition workflows and inventory consumption tracking",
+          "Role-based access control for contractors, engineers, and site managers",
+          "Cloud synchronization powered by Supabase and PostgreSQL"
+        ];
       } else {
         features = [
           "Dynamic response and modern user interface design",

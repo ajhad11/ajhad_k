@@ -15,10 +15,12 @@ import ProjectDetails from './components/ProjectDetails';
 
 // Scroll to top on route change helper
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const location = useLocation();
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    if (!location.state?.scrollTo) {
+      window.scrollTo(0, 0);
+    }
+  }, [location.pathname, location.state]);
   return null;
 }
 

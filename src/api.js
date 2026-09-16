@@ -63,54 +63,100 @@ const FALLBACK_DATA = {
     {
       id: 1,
       title: 'Gold Bill Management',
-      description: 'Gold Bill Management is a specialized system for creating and managing gold weight bills. It ensures accurate billing, secure record-keeping, and streamlined transaction tracking.',
+      category: 'Mobile',
+      tagline: 'Retail Billing & Gold Weight Calculator',
+      description: 'A specialized Flutter mobile application designed for jewelers and gold merchants. Ensures precision billing with multi-karat calculation, real-time rate updates, and automated digital invoices.',
+      highlights: ['Accurate Multi-Karat Valuation', 'Offline SQLite Local Database', 'Automated PDF Invoicing'],
       image: '/assets/gold_bill Naganeshi.png',
-      technologies_list: ['Flutter', 'SQLite', 'Provider'],
+      technologies_list: ['Flutter', 'SQLite', 'Provider', 'PDF Engine'],
       technologies: 'Flutter SQLite Provider',
       live_link: 'https://github.com/ajhad11/gold_applicaion',
-      github_link: 'https://github.com/ajhad11/gold_applicaion'
+      github_link: 'https://github.com/ajhad11/gold_applicaion',
+      features_list: [
+        "Real-time gold rate updating and conversion calculators",
+        "Weight calculations for multi-item transactions in grams and carats",
+        "Automated tax, making charges, and discount calculations",
+        "PDF invoice generation with print and instant share options"
+      ]
     },
     {
-    id: 4,
-    title: "TripSettle",
-    description: "TripSettle makes group trip expenses simple by tracking spending, splitting bills, and calculating balances.Share expenses, track contributions, and settle payments easily with your travel group.",
-    image: "/assets/tripsettle.png",
-    technologies_list: ["Flutter", "Supabase", "PostgreSQL"],
-    technologies: "Flutter Supabase PostgreSQL",
-    live_link: "https://github.com/ajhad11/tripsettle",
-    github_link: 'https://github.com/ajhad11/tripsettle',
-
-    },
-  {
-    id: 5,
-    title: "Construction Management System",
-    description: "A comprehensive construction management system for project planning, resource allocation, task tracking, and real-time collaboration among teams.",
-    image: "/assets/construction.png",
-    technologies_list: ["Flutter", "Supabase", "PostgreSQL"],
-    technologies: "Flutter Supabase PostgreSQL",
-    live_link: "https://github.com/ajhad11/construction_app",
-    github_link: 'https://github.com/ajhad11/construction_app',
-  },
-    {
-      id: 1,
-      title: 'Townseek',
-      description: 'TownSeek is a smart location-based application for discovering nearby businesses, services, and hospitals. It provides search, navigation, booking, and business management features in one platform.',
-      image: '/assets/townseek.png',
-      technologies_list: ['Flutter', 'Supabase', 'Provider'],
-      technologies: 'Flutter Supabase Provider',
-      live_link: 'https://github.com/ajhad11/townseek',
-      github_link: 'https://github.com/ajhad11/townseek'
+      id: 2,
+      title: "TripSettle",
+      category: 'Mobile',
+      tagline: 'Collaborative Group Expense & Debt Splitter',
+      description: 'TripSettle makes group travel budgeting simple by tracking shared expenses, automatically splitting bills, and calculating optimal balance settlements to avoid confusion.',
+      highlights: ['Smart Debt Simplification', 'Realtime Supabase Cloud Sync', 'Group Ledger & Spending Reports'],
+      image: "/assets/tripsettle.png",
+      technologies_list: ["Flutter", "Supabase", "PostgreSQL", "State Management"],
+      technologies: "Flutter Supabase PostgreSQL",
+      live_link: "https://github.com/ajhad11/tripsettle",
+      github_link: 'https://github.com/ajhad11/tripsettle',
+      features_list: [
+        "Group expense tracking with multi-person split calculation engine",
+        "Automated debt simplification to minimize total repayment transactions",
+        "Supabase real-time database sync for instant updates across devices",
+        "Categorical expense breakdowns with visual analytics charts",
+        "Settlement reminders and offline transaction recording"
+      ]
     },
     {
       id: 3,
+      title: "Construction Management System",
+      category: 'Mobile',
+      tagline: 'Enterprise Site & Resource Planning System',
+      description: 'A comprehensive mobile application for civil construction teams enabling site project tracking, labor and resource allocation, task workflows, and real-time collaboration.',
+      highlights: ['Site Progress & Milestones', 'Material Requisition Logs', 'Role-Based Team Permissions'],
+      image: "/assets/construction.png",
+      technologies_list: ["Flutter", "Supabase", "PostgreSQL", "Cloud Storage"],
+      technologies: "Flutter Supabase PostgreSQL",
+      live_link: "https://github.com/ajhad11/construction_app",
+      github_link: 'https://github.com/ajhad11/construction_app',
+      features_list: [
+        "Real-time site project planning and milestone tracking dashboard",
+        "Resource and labor allocation management with progress metrics",
+        "Material requisition workflows and inventory consumption tracking",
+        "Role-based access control for contractors, engineers, and site managers",
+        "Cloud synchronization powered by Supabase and PostgreSQL"
+      ]
+    },
+    {
+      id: 4,
+      title: 'Townseek',
+      category: 'Mobile',
+      tagline: 'Smart Location & Local Business Discovery',
+      description: 'A smart location-based mobile application for discovering nearby businesses, services, and hospitals with GPS routing, verified listings, and direct booking capabilities.',
+      highlights: ['GPS-based Spatial Discovery', 'Interactive Maps & Routing', 'Supabase Cloud Backend'],
+      image: '/assets/townseek.png',
+      technologies_list: ['Flutter', 'Supabase', 'Provider', 'Google Maps'],
+      technologies: 'Flutter Supabase Provider',
+      live_link: 'https://github.com/ajhad11/townseek',
+      github_link: 'https://github.com/ajhad11/townseek',
+      features_list: [
+        "Interactive map interface with distance calculation and navigation",
+        "Categorized search for clinics, hotels, transport hubs, and shops",
+        "Real-time filters (rating, distance, availability)",
+        "In-app appointment booking and confirmation system",
+        "Business owner dashboard for managing bookings and staff"
+      ]
+    },
+    {
+      id: 5,
       title: 'E-Library Management System',
-      description: 'Digital library platform for managing books, student records, issue and return tracking, cataloging, and quick search functionality.',
+      category: 'Web',
+      tagline: 'Digital Book Cataloging & Student Portal',
+      description: 'An interactive web platform for modern libraries to manage book collections, student records, cataloging, checkout and return workflows, and instant catalog searches.',
+      highlights: ['Instant Search & Filter', 'Borrowing Records & Due Dates', 'Responsive Web Interface'],
       image: '/assets/E_library_management.png',
-      technologies_list: ['HTML', 'CSS', 'JavaScript'],
+      technologies_list: ['HTML5', 'CSS3', 'JavaScript', 'Web APIs'],
       technologies: 'HTML CSS JavaScript',
       live_link: 'https://github.com/ajhad11',
       github_link: 'https://github.com/ajhad11',
-      category: 'Web'
+      features_list: [
+        "Digital cataloging of books by title, author, genre, and ISBN",
+        "Student borrowing check-out and return tracking system",
+        "Automated fine calculation for overdue items",
+        "Responsive web layout with instant filter and search"
+      ]
     },
 
     // {

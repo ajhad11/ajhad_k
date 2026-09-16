@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FiMenu, FiX, FiSun, FiMoon } from 'react-icons/fi';
+import { FiMenu, FiX } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -21,7 +21,7 @@ export const scrollToSection = (targetId) => {
   }
 };
 
-export default function Navbar({ theme = 'dark', toggleTheme }) {
+export default function Navbar() {
   // Mobile drawer open/close state
   const [isOpen, setIsOpen] = useState(false);
   // Scrolled state for navbar background appearance
@@ -139,16 +139,12 @@ export default function Navbar({ theme = 'dark', toggleTheme }) {
     }
   };
 
-  const isLight = theme === 'light';
-
   return (
     <>
       <nav
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
           scrolled
-            ? isLight
-              ? 'py-3.5 bg-white/90 backdrop-blur-md border-b border-gray-200/80 shadow-md'
-              : 'py-3.5 bg-[#020B1C]/90 backdrop-blur-md border-b border-white/10 shadow-lg shadow-black/30'
+            ? 'py-3.5 bg-[#020B1C]/90 backdrop-blur-md border-b border-white/10 shadow-lg shadow-black/30'
             : 'py-5 bg-transparent'
         }`}
       >
@@ -159,11 +155,7 @@ export default function Navbar({ theme = 'dark', toggleTheme }) {
             onClick={(e) => handleNavClick(e, '#home')}
             className="text-xl font-bold tracking-widest font-space flex items-center gap-1 group cursor-pointer"
           >
-            <span
-              className={`transition-colors duration-200 ${
-                isLight ? 'text-gray-900 group-hover:text-primary' : 'text-white group-hover:text-primary'
-              }`}
-            >
+            <span className="text-white group-hover:text-primary transition-colors duration-200">
               AJHAD
             </span>
             <span className="text-primary text-glow">K</span>
@@ -183,8 +175,6 @@ export default function Navbar({ theme = 'dark', toggleTheme }) {
                   className={`relative py-1 text-sm font-medium transition-colors duration-200 cursor-pointer ${
                     isActive
                       ? 'text-primary font-semibold'
-                      : isLight
-                      ? 'text-gray-600 hover:text-gray-950'
                       : 'text-text-gray hover:text-white'
                   }`}
                 >
@@ -201,27 +191,8 @@ export default function Navbar({ theme = 'dark', toggleTheme }) {
             })}
           </div>
 
-          {/* Desktop Controls (Theme Toggle & Action Button) */}
+          {/* Desktop Controls (Action Button) */}
           <div className="hidden lg:flex items-center space-x-4">
-            {toggleTheme && (
-              <button
-                onClick={toggleTheme}
-                className={`p-2.5 rounded-full border transition-all duration-300 cursor-pointer ${
-                  isLight
-                    ? 'bg-gray-100 border-gray-300 text-gray-700 hover:bg-gray-200'
-                    : 'glass-card text-text-gray hover:text-white hover:border-primary/40'
-                }`}
-                aria-label="Toggle Theme"
-                title={isLight ? 'Switch to Dark Mode' : 'Switch to Light Mode'}
-              >
-                {isLight ? (
-                  <FiMoon className="w-4 h-4 text-primary" />
-                ) : (
-                  <FiSun className="w-4 h-4 text-amber-400" />
-                )}
-              </button>
-            )}
-
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, '#contact')}
@@ -235,32 +206,10 @@ export default function Navbar({ theme = 'dark', toggleTheme }) {
 
           {/* Mobile controls */}
           <div className="flex lg:hidden items-center space-x-2">
-            {toggleTheme && (
-              <button
-                onClick={toggleTheme}
-                className={`p-2 rounded-full border transition-all duration-200 cursor-pointer ${
-                  isLight
-                    ? 'bg-gray-100 border-gray-300 text-gray-700'
-                    : 'glass-card text-text-gray hover:text-white'
-                }`}
-                aria-label="Toggle Theme"
-              >
-                {isLight ? (
-                  <FiMoon className="w-5 h-5 text-primary" />
-                ) : (
-                  <FiSun className="w-5 h-5 text-amber-400" />
-                )}
-              </button>
-            )}
-
             {/* Hamburger Menu button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`p-2 rounded-full border transition-all duration-200 cursor-pointer ${
-                isLight
-                  ? 'bg-gray-100 border-gray-300 text-gray-800 hover:bg-gray-200'
-                  : 'glass-card text-text-gray hover:text-white'
-              }`}
+              className="p-2 rounded-full border glass-card text-text-gray hover:text-white transition-all duration-200 cursor-pointer"
               aria-label={isOpen ? 'Close Menu' : 'Open Menu'}
             >
               {isOpen ? <FiX className="w-5 h-5" /> : <FiMenu className="w-5 h-5" />}
@@ -276,11 +225,7 @@ export default function Navbar({ theme = 'dark', toggleTheme }) {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.25, ease: 'easeInOut' }}
-              className={`lg:hidden w-full border-b backdrop-blur-xl overflow-hidden ${
-                isLight
-                  ? 'bg-white/95 border-gray-200 text-gray-900 shadow-xl'
-                  : 'bg-[#020B1C]/95 border-white/10 text-white shadow-2xl'
-              }`}
+              className="lg:hidden w-full border-b backdrop-blur-xl overflow-hidden bg-[#020B1C]/95 border-white/10 text-white shadow-2xl"
             >
               <div className="px-6 py-6 flex flex-col space-y-2">
                 {menuItems.map((item) => {
@@ -295,8 +240,6 @@ export default function Navbar({ theme = 'dark', toggleTheme }) {
                       className={`flex items-center justify-between text-base font-medium py-3 px-4 rounded-xl transition-all duration-200 cursor-pointer ${
                         isActive
                           ? 'bg-primary/15 text-primary font-semibold border border-primary/25'
-                          : isLight
-                          ? 'text-gray-700 hover:bg-gray-100 hover:text-gray-950'
                           : 'text-text-gray hover:bg-white/5 hover:text-white'
                       }`}
                     >

@@ -14,16 +14,6 @@
   color: #FFFFFF;
 }
 
-:root.light {
-  --color-bg-primary: #F8FAFC;
-  --color-bg-secondary: #EDF2F7;
-  --color-text-white: #1A202C;
-  --color-text-gray: #4A5568;
-  --color-border-custom: rgba(0,0,0,0.08);
-  background-color: #F8FAFC;
-  color: #1A202C;
-}
-
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -79,13 +69,6 @@
 /* Glassmorphism utility */
 .glass-card {
   background: rgba(7, 26, 53, 0.45);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--color-border-custom);
-}
-
-:root.light .glass-card {
-  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--color-border-custom);

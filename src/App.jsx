@@ -23,35 +23,20 @@ function ScrollToTop() {
 }
 
 export default function App() {
-  // 1. Hook to manage application theme with localStorage persistence (defaults to dark)
-  const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('portfolio-theme') || 'dark';
-  });
-
-  // Synchronizes the theme state with the DOM document root element class list
+  // Ensure dark mode is active and clean up any residual light theme settings
   useEffect(() => {
-    const root = document.documentElement;
-    if (theme === 'light') {
-      root.classList.add('light');
-    } else {
-      root.classList.remove('light');
-    }
-    localStorage.setItem('portfolio-theme', theme);
-  }, [theme]);
-
-  // Switches between light and dark themes
-  const toggleTheme = () => {
-    setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
-  };
+    document.documentElement.classList.remove('light');
+    localStorage.removeItem('portfolio-theme');
+  }, []);
 
   return (
     <Router>
       <ScrollToTop />
       <div className="relative min-h-screen bg-bg-primary text-text-white transition-colors duration-300">
-        <ParticleBackground theme={theme} />
+        <ParticleBackground />
         
         {/* Global Navbar */}
-        <Navbar theme={theme} toggleTheme={toggleTheme} />
+        <Navbar />
 
         <Routes>
           {/* Main Portfolio Route */}

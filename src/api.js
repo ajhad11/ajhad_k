@@ -60,7 +60,7 @@ const FALLBACK_DATA = {
     },
   ],
   projects: [
-    { 
+    {
       id: 1,
       title: 'Townseek',
       description: 'TownSeek is a smart location-based application for discovering nearby businesses, services, and hospitals. It provides search, navigation, booking, and business management features in one platform.',
@@ -77,19 +77,10 @@ const FALLBACK_DATA = {
       image: '/assets/gold_bill Naganeshi.png',
       technologies_list: ['Flutter', 'SQLite', 'Provider'],
       technologies: 'Flutter SQLite Provider',
-      live_link: 'https://github.com/ajhad11/gold_billing_app',
-      github_link: 'https://github.com/ajhad11/gold_billing_app'
+      live_link: 'https://github.com/ajhad11/gold_applicaion',
+      github_link: 'https://github.com/ajhad11/gold_applicaion'
     },
-    {
-      id: 3,
-      title: 'Gold Inventory Management',
-      description: 'A robust inventory management system designed for gold merchants. It manages stocks, tracks billing and transactions, and includes detailed analytics reporting.',
-      image: '/assets/gold_invertry.png',
-      technologies_list: ['Flutter', 'SQLite', 'Provider'],
-      technologies: 'Flutter SQLite Provider',
-      live_link: 'https://github.com/ajhad11/gold_billing_app',
-      github_link: 'https://github.com/ajhad11/gold_billing_app'
-    },
+
     {
       id: 4,
       title: 'E-Library Management System',
@@ -101,16 +92,37 @@ const FALLBACK_DATA = {
       github_link: 'https://github.com/ajhad11',
       category: 'Web'
     },
+    // {
+    //   id: 5,
+    //   title: 'Event Management System',
+    //   description: 'Complete event planning and booking platform with vendor management, event scheduling, dynamic pricing, and customer inquiries.',
+    //   image: '/assets/event_management.png',
+    //   technologies_list: ['React', 'Django', 'PostgreSQL'],
+    //   technologies: 'React Django PostgreSQL',
+    //   live_link: 'https://github.com/ajhad11',
+    //   github_link: 'https://github.com/ajhad11',
+    //   category: 'Full Stack'
+    // },
+     {
+      id: 6,
+      title: "TripSettle",
+      description: "TripSettle makes group trip expenses simple by tracking spending, splitting bills, and calculating balances.Share expenses, track contributions, and settle payments easily with your travel group.",
+      image: "/assets/tripsettle.png",
+      technologies_list: ["Flutter", "Supabase", "PostgreSQL"],
+      technologies: "Flutter Supabase PostgreSQL",
+      live_link: "https://github.com/ajhad11/tripsettle",
+      github_link: 'https://github.com/ajhad11/tripsettle',
+
+    },
     {
-      id: 5,
-      title: 'Event Management System',
-      description: 'Complete event planning and booking platform with vendor management, event scheduling, dynamic pricing, and customer inquiries.',
-      image: '/assets/event_management.png',
-      technologies_list: ['React', 'Django', 'PostgreSQL'],
-      technologies: 'React Django PostgreSQL',
-      live_link: 'https://github.com/ajhad11',
-      github_link: 'https://github.com/ajhad11',
-      category: 'Full Stack'
+      id: 7,
+      title: "Construction Management System",
+      description: "A comprehensive construction management system for project planning, resource allocation, task tracking, and real-time collaboration among teams.",
+      image: "/assets/construction.png",
+      technologies_list: ["Flutter", "Supabase", "PostgreSQL"],
+      technologies: "Flutter Supabase PostgreSQL",
+      live_link: "https://github.com/ajhad11/construction_app",
+      github_link: 'https://github.com/ajhad11/construction_app',
     }
   ],
   certificates: [
@@ -121,51 +133,42 @@ const FALLBACK_DATA = {
       verification_link: '/assets/doc/flutter certificate.pdf',
       date_issued: 'Nov 2024',
       category: 'Development',
-      credential_id: 'AVO-FLT-2024-A+',
       description: 'Advanced Flutter mobile application development program covering widget lifecycle, state management, REST API integration, animations, and clean architecture.',
       skills: ['Flutter', 'Dart', 'State Management', 'API Integration', 'Mobile UI/UX']
     },
     {
       title: 'Flutter Development with AI',
       issuing_organization: 'Multysense EduTech',
-      image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80',
       verification_link: '/assets/doc/Certificate_MS2502010502042 (1).pdf',
       date_issued: 'Nov 2025',
       category: 'Development',
-      credential_id: 'MS2502010502042',
       description: 'Comprehensive certification in integrating AI capabilities with Flutter applications, modern machine learning API integrations, and smart features.',
-      skills: ['Flutter', 'AI Integration', 'Dart', 'Machine Learning APIs', 'Full Stack Mobile']
+      skills: ['Flutter',  'Dart',  'Full Stack Mobile']
     },
     {
       title: 'Web Development Certification',
       issuing_organization: 'Verveox Technologies',
-      image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80',
       verification_link: '/assets/doc/web certficate.pdf',
       date_issued: 'May 2025',
       category: 'Development',
-      credential_id: 'VRV-WEB-2025-05',
       description: 'Practical web application development covering responsive frontends, modular JavaScript components, REST API integration, and database operations.',
-      skills: ['React', 'JavaScript', 'HTML5/CSS3', 'REST API', 'Responsive Design']
+      skills: ['Node.js', 'JavaScript', 'HTML5/CSS3', 'REST API', 'Responsive Design']
     },
     {
-      title: 'Letter of Recommendation (LOR)',
+      title: 'Internship Experience',
       issuing_organization: 'Recongal Technologies',
-      image: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80',
       verification_link: '/assets/doc/LOR.pdf',
       date_issued: 'Aug 2026',
-      category: 'Awards & LOR',
-      credential_id: 'RCN-LOR-2026',
+      category: 'Development',
       description: 'Letter of recommendation recognizing dedicated performance, Flutter mobile application delivery, problem-solving, and team collaboration during internship.',
       skills: ['Flutter', 'Mobile Architecture', 'Team Collaboration', 'Problem Solving']
     },
     {
-      title: 'AI Internship Offer & Certification',
-      issuing_organization: 'Multysense EduTech',
-      image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80',
+      title: 'AI Internship Offer',
+      issuing_organization: 'isudio Technologies',
       verification_link: '/assets/doc/Ajhad K - Artificial Intelligence Internship - Offer Letter.pdf',
       date_issued: 'Nov 2025',
       category: 'Awards & LOR',
-      credential_id: 'MS-AI-INT-2025',
       description: 'Official internship offer & commendation letter for Artificial Intelligence and intelligent mobile systems development.',
       skills: ['Artificial Intelligence', 'Mobile Systems', 'System Design']
     }
@@ -224,10 +227,10 @@ export const submitContactForm = async (formData) => {
   } catch (error) {
     console.warn("API Error submitting contact form:", error.message);
     // Return simulated success response so front-end alerts succeed even offline
-    return { 
-      success: true, 
-      mocked: true, 
-      message: "Message received! (Backup stored successfully)" 
+    return {
+      success: true,
+      mocked: true,
+      message: "Message received! (Backup stored successfully)"
     };
   }
 };

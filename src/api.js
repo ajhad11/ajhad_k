@@ -107,7 +107,7 @@ const FALLBACK_DATA = {
       description: 'A comprehensive mobile application for civil construction teams enabling site project tracking, labor and resource allocation, task workflows, and real-time collaboration.',
       highlights: ['Site Progress & Milestones', 'Material Requisition Logs', 'Role-Based Team Permissions'],
       image: "/assets/construction.png",
-      technologies_list: ["Flutter", "Supabase", "PostgreSQL", "Cloud Storage"],
+      technologies_list: ["Flutter", "Supabase", "PostgreSQL"],
       technologies: "Flutter Supabase PostgreSQL",
       live_link: "https://github.com/ajhad11/construction_app",
       github_link: 'https://github.com/ajhad11/construction_app',

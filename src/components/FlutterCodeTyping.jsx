@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { FiTerminal } from 'react-icons/fi';
 import { SiFlutter, SiReact, SiDjango, SiPython } from 'react-icons/si';
 
@@ -22,9 +22,19 @@ class AjhadApp extends StatelessWidget {
       theme: ThemeData.dark(),
       home: const Scaffold(
         body: Center(
-          child: Text(
-            'Hi, I am Ajhad K 👋\\nFlutter & Full-Stack Developer',
-            textAlign: TextAlign.center,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Hi, I am Ajhad K 👋',
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 8),
+              Text(
+                'Flutter • React • Django Developer',
+                style: TextStyle(fontSize: 14, color: Colors.blueAccent),
+              ),
+            ],
           ),
         ),
       ),
@@ -37,21 +47,30 @@ class AjhadApp extends StatelessWidget {
     fileName: 'App.jsx',
     iconType: 'react',
     footerText: 'React 19 & Tailwind • Modern Web Apps',
-    code: `import React, { useState } from 'react';
+    code: `import React, { useState, useEffect } from 'react';
 
-export default function App() {
+export default function PortfolioApp() {
+  const [activeTab, setActiveTab] = useState('projects');
   const [developer] = useState({
     name: 'Ajhad K',
     role: 'Flutter • React • Django Developer',
-    stack: ['Flutter', 'React', 'Django', 'PostgreSQL']
+    stack: ['Flutter', 'React', 'Django', 'PostgreSQL'],
+    internships: '2+ Industry Internships'
   });
 
+  useEffect(() => {
+    console.log(\`Loaded profile for \${developer.name}\`);
+  }, [developer]);
+
   return (
-    <div className="portfolio-app">
-      <header className="hero-section">
+    <div className="portfolio-app min-h-screen">
+      <header className="hero-header">
         <h1>Welcome, I am {developer.name} 👋</h1>
         <p>Building high-performance modern web apps</p>
       </header>
+      <section className="tech-badge-container">
+        <span>Active Focus: {developer.role}</span>
+      </section>
     </div>
   );
 }`
@@ -63,24 +82,32 @@ export default function App() {
     footerText: 'Django REST Framework • Backend APIs',
     code: `from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework import status
 
 class DeveloperProfileView(APIView):
-    """API endpoint for developer profile & capabilities"""
+    """
+    REST API endpoint serving developer profile,
+    skills, and production engineering metrics.
+    """
 
-    def get(self, request):
-        profile = {
+    def get(self, request, *args, **kwargs):
+        profile_data = {
             "developer": "Ajhad K",
-            "title": "Flutter • React • Django Developer",
-            "database": ["PostgreSQL", "Supabase", "Firebase"],
-            "status": "Ready for production"
+            "role": "Flutter • React • Django Developer",
+            "specialties": [
+                "Cross-Platform Mobile Apps",
+                "Responsive React Web Apps",
+                "High-Throughput Django REST APIs"
+            ],
+            "databases": ["PostgreSQL", "Supabase", "Firebase"],
+            "status": "Available for Opportunities"
         }
-        return Response(profile, status=200)`
+        return Response(profile_data, status=status.HTTP_200_OK)`
   }
 ];
 
 // Universal syntax highlighter for Dart, React/JSX, and Python/Django
 const highlightLine = (line) => {
-  // Check for comments
   let commentIdx = -1;
   const dSlash = line.indexOf('//');
   const hash = line.indexOf('#');
@@ -100,7 +127,7 @@ const highlightLine = (line) => {
     commentPart = line.slice(commentIdx);
   }
 
-  const tokenRegex = /("""[\s\S]*?"""|'''[\s\S]*?'''|'(?:[^'\\\n]|\\.)*'|"(?:[^"\\\n]|\\.)*")|(@[a-zA-Z0-9_]+)|(\b[a-zA-Z_$][a-zA-Z0-9_$]*\s*:)|(\b(?:import|from|class|extends|abstract|const|final|return|super|void|true|false|new|this|async|await|def|export|default|function|const|let|var|if|else|self)\b)|(\b(?:Widget|BuildContext|StatelessWidget|StatefulWidget|MaterialApp|ThemeData|Scaffold|Center|Text|TextAlign|AjhadApp|String|int|double|bool|React|useState|APIView|Response|DeveloperProfileView)\b)|(\b(?:build|runApp|main|get|render)\b)|(\b\d+(?:\.\d+)?\b)|([{}()[\]<>,;.<>=+*\/!?:&|~^-])|(\s+)|([a-zA-Z_$][a-zA-Z0-9_$]*)/g;
+  const tokenRegex = /("""[\s\S]*?"""|'''[\s\S]*?'''|'(?:[^'\\\n]|\\.)*'|"(?:[^"\\\n]|\\.)*"|`[\s\S]*?`)|(@[a-zA-Z0-9_]+)|(\b[a-zA-Z_$][a-zA-Z0-9_$]*\s*:)|(\b(?:import|from|class|extends|abstract|const|final|return|super|void|true|false|new|this|async|await|def|export|default|function|let|var|if|else|self)\b)|(\b(?:Widget|BuildContext|StatelessWidget|StatefulWidget|MaterialApp|ThemeData|Scaffold|Center|Text|TextAlign|Column|MainAxisAlignment|TextStyle|FontWeight|SizedBox|Colors|AjhadApp|String|int|double|bool|React|useState|useEffect|APIView|Response|DeveloperProfileView|PortfolioApp)\b)|(\b(?:build|runApp|main|get|render|log)\b)|(\b\d+(?:\.\d+)?\b)|([{}()[\]<>,;.<>=+*\/!?:&|~^-])|(\s+)|([a-zA-Z_$][a-zA-Z0-9_$]*)/g;
 
   const tokens = [];
   let match;
@@ -142,26 +169,63 @@ export default function FlutterCodeTyping() {
   const [snippetIndex, setSnippetIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [isCompleted, setIsCompleted] = useState(false);
+  const codeContainerRef = useRef(null);
 
   const currentSnippet = SNIPPETS[snippetIndex];
   const fullCode = currentSnippet.code;
 
+  // Auto-scroll effect: as typing writes down, the top code scrolls up smoothly
   useEffect(() => {
-    // If typing for current snippet completed
+    if (!codeContainerRef.current) return;
+
+    if (charIndex === 0) {
+      codeContainerRef.current.scrollTop = 0;
+      return;
+    }
+
+    const container = codeContainerRef.current;
+    const targetScroll = container.scrollHeight - container.clientHeight;
+    
+    // Smoothly scroll down so the bottom/active typing line is always in clear view
+    if (targetScroll > 0) {
+      container.scrollTo({
+        top: targetScroll,
+        behavior: 'smooth'
+      });
+    }
+  }, [charIndex]);
+
+  // Typing and delay cycle effect
+  useEffect(() => {
+    // When typing for current snippet finishes
     if (charIndex >= fullCode.length) {
       setIsCompleted(true);
       
-      // Wait for 10 seconds after typing finishes, then switch to next language
+      // After 4.5 seconds of viewing the completed code at the bottom,
+      // smoothly scroll back to top so the user can inspect the full file before switching
+      const scrollUpTimer = setTimeout(() => {
+        if (codeContainerRef.current) {
+          codeContainerRef.current.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        }
+      }, 4500);
+
+      // Wait 10 seconds total after typing finishes, then switch to the next language
       const waitTimer = setTimeout(() => {
         setIsCompleted(false);
         setCharIndex(0);
         setSnippetIndex((prev) => (prev + 1) % SNIPPETS.length);
       }, 10000);
 
-      return () => clearTimeout(waitTimer);
+      return () => {
+        clearTimeout(scrollUpTimer);
+        clearTimeout(waitTimer);
+      };
     }
 
-    // Typing logic
+    // Typing speed & step calculation
     const currentChar = fullCode[charIndex];
     let step = 1;
     let delay = 16;
@@ -189,7 +253,7 @@ export default function FlutterCodeTyping() {
   const typedText = fullCode.slice(0, charIndex);
   const lines = typedText.split('\n');
 
-  // Render header icon according to active snippet
+  // Active header icon
   const renderIcon = () => {
     if (currentSnippet.iconType === 'flutter') {
       return <SiFlutter className="w-3.5 h-3.5 text-[#02569B]" />;
@@ -235,8 +299,11 @@ export default function FlutterCodeTyping() {
           </div>
         </div>
 
-        {/* Code Content Area */}
-        <div className="p-4 sm:p-5 font-mono text-xs sm:text-[13px] leading-[1.7] select-text min-h-[300px] max-h-[330px] overflow-hidden bg-white dark:bg-[#070D18]">
+        {/* Code Content Area with auto-scroll */}
+        <div 
+          ref={codeContainerRef}
+          className="p-4 sm:p-5 font-mono text-xs sm:text-[13px] leading-[1.7] select-text h-[290px] sm:h-[310px] overflow-y-auto scroll-smooth scrollbar-none [&::-webkit-scrollbar]:hidden bg-white dark:bg-[#070D18]"
+        >
           {lines.map((line, idx) => {
             const isCurrentLine = idx === lines.length - 1;
             const lineTokens = highlightLine(line);

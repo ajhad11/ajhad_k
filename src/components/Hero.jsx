@@ -144,7 +144,7 @@ export default function Hero() {
             </a>
             <span>&bull;</span>
             <a
-              href="https://wa.me/919562001042"
+              href="https://wa.me/971562001042"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-emerald-500 flex items-center gap-1.5 transition-colors"

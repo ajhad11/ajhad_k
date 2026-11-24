@@ -133,9 +133,7 @@ export default function Navbar() {
                 DEV
               </span>
             </div>
-            <p className="text-[10px] text-[#64748B] dark:text-[#94A3B8] font-medium leading-none">
-              Flutter &bull; .NET &bull; AI
-            </p>
+          
           </div>
         </button>
 

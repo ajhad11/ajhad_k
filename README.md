@@ -63,5 +63,5 @@ npm run build
 **Ajhad K**
 - **Email**: [ajhadk453@gmail.com](mailto:ajhadk453@gmail.com)
 - **GitHub**: [@ajhad11](https://github.com/ajhad11)
-- **WhatsApp**: [+91 95620 01042](https://wa.me/919562001042)
+- **WhatsApp**: [+971 56 200 1042](https://wa.me/971562001042)
 - **Location**: Calicut, Kerala, India

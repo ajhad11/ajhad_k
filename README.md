@@ -1,27 +1,35 @@
-# 🚀 Ajhad K — Developer Portfolio
+# 🚀 Ajhad K — Full-Stack Software Engineer & AI Systems Developer
 
-A high-performance, modern developer portfolio website built with **React**, **Vite**, **Tailwind CSS**, and **Framer Motion**. Featuring interactive 3D particle backgrounds, dynamic certification credentials, simulated device sandboxes for project demos, and complete responsive UI.
+A premier, high-performance developer portfolio engineered with **React 19**, **Vite**, **Tailwind CSS v4**, and **Framer Motion**. Designed for technical recruiters, engineering leaders, and hiring managers to quickly assess candidate capability across **AI/ML**, **Flutter Mobile**, and **Full-Stack Web** engineering.
 
 ---
 
-## ✨ Features
+## 🎯 Candidate Profile & Fast-Scan Metrics
 
-- ⚡ **Lightning Fast**: Built on Vite and React 19 for instant HMR and optimized production bundles.
-- 🎨 **Modern Aesthetics**: Sleek dark futuristic interface with neon glow, glassmorphism cards, and fluid micro-animations.
-- 📱 **Interactive Project Demos & Sandbox**: Multi-device frame simulator (Desktop & Mobile views) with wireframes and interactive state test simulation.
-- 📜 **Verified Credentials & Certifications**: Accreditation modal viewer with copyable credential IDs and direct PDF viewing & download.
-- 💼 **Career Timeline**: Detailed internship and work history breakdown.
-- 🛠️ **Skill Matrix**: Dynamic categorized skill proficiency visualization (Mobile, Backend, Database, State Management, Tools).
-- 📬 **Interactive Contact Channel**: Direct messaging interface with validation and responsive status feedback.
+- **Candidate**: Ajhad K (BSc Computer Science)
+- **Role Alignment**: Full-Stack Engineer, AI/ML Developer, Flutter Mobile Specialist
+- **Location**: Calicut, Kerala (Open to Relocation & Remote)
+- **Core Track Record**: 12+ Production Projects, 2+ Tech Internships, 5 Verified Certifications & LORs
+
+---
+
+## ✨ Features & Upgrades
+
+- 🤖 **12+ Production & AI Projects Showcase**: Real-world systems spanning Computer Vision (YOLOv8), GenAI (LangChain, Gemini API, RAG), Flutter Mobile (BLoC/Provider), and Full-Stack Web (React + Django/FastAPI).
+- 📱 **Interactive Sandbox & Deep Architecture View**: Multi-device frame simulator (Desktop & Mobile views) with wireframes, live console output, and interactive state mutation test sandboxes.
+- ⚡ **Recruiter Fast-Track**: Clear value proposition, immediate availability indicators, one-click WhatsApp screening, direct resume download, and specialized contact options.
+- 🛠️ **Categorized Skill Matrix**: Real-world proficiency visualization covering AI/ML, Flutter, Frontend, Backend, Cloud & Databases, and DevOps.
+- 📜 **Verified Credentials**: Instant PDF viewing and verification for certificates (Avodha Edutech, Multysense AI, Verveox, isudio, and Recongal LOR).
+- 🎨 **Apple/Linear-Grade Aesthetics**: Sleek dark aesthetic, glowing accents, glassmorphic cards, fluid micro-interactions, and 100% mobile responsiveness.
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: React 19, Vite, Tailwind CSS v4
-- **Animation & 3D**: Framer Motion, Three.js, React Three Fiber
-- **Icons**: React Icons (Lucide/Feather & Simple Icons)
-- **Routing**: React Router DOM (Hash Router for seamless static / GitHub Pages hosting)
+- **Frontend**: React 19, Vite, Tailwind CSS v4, Lucide & Simple Icons
+- **Animation**: Framer Motion, GSAP
+- **Routing**: React Router DOM (Hash Router for flawless static / GitHub Pages deployment)
+- **Languages & Frameworks Highlighted**: Python, Flutter, Dart, React, FastAPI, Django REST, LangChain, YOLOv8, OpenCV, PostgreSQL, Supabase, SQLite
 
 ---
 
@@ -43,8 +51,6 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) in your browser.
-
 ### 4. Build for production
 ```bash
 npm run build
@@ -52,40 +58,10 @@ npm run build
 
 ---
 
-## 📂 Project Structure
+## 👤 Contact & Hiring Inquiries
 
-```
-├── public/
-│   ├── assets/
-│   │   ├── doc/             # Certification PDFs, LOR & CV
-│   │   ├── profile.jpg      # Profile photography
-│   │   └── *.png            # Project preview mockups & screenshots
-│   └── vite.svg
-├── src/
-│   ├── components/
-│   │   ├── Hero.jsx         # Hero introduction & floating tech stack
-│   │   ├── About.jsx        # Biography & technical highlights
-│   │   ├── Skills.jsx       # Categorized skill badges
-│   │   ├── Experience.jsx   # Timeline of internships & roles
-│   │   ├── Projects.jsx     # Filterable project catalog
-│   │   ├── ProjectDetails.jsx # Interactive sandbox & screenshot gallery
-│   │   ├── Certifications.jsx # Verified awards & modal viewer
-│   │   ├── Contact.jsx      # Contact form & social connections
-│   │   ├── Navbar.jsx       # Responsive navigation header
-│   │   ├── Footer.jsx       # Footer links & copyright
-│   │   └── ParticleBackground.jsx # Animated canvas backdrop
-│   ├── api.js               # Data layer & API handler with offline fallback
-│   ├── App.jsx              # Main routing & application wrapper
-│   ├── index.css            # Global styles & theme utilities
-│   └── main.jsx             # React DOM root entry
-├── package.json
-└── vite.config.js
-```
-
----
-
-## 👤 Author
-
-**Ajhad K**  
-- **GitHub**: [@ajhad11](https://github.com/ajhad11)
+**Ajhad K**
 - **Email**: [ajhadk453@gmail.com](mailto:ajhadk453@gmail.com)
+- **GitHub**: [@ajhad11](https://github.com/ajhad11)
+- **WhatsApp**: [+971 56 200 1042](https://wa.me/971562001042)
+- **Location**: Calicut, Kerala, India

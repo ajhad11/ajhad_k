@@ -1,103 +1,129 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { fetchExperience } from '../api';
-import { FiBriefcase, FiCalendar, FiMapPin } from 'react-icons/fi';
+import { FiBriefcase, FiCalendar, FiMapPin, FiCheckCircle, FiFileText } from 'react-icons/fi';
 
 export default function Experience() {
   const [experiences, setExperiences] = useState([]);
 
   useEffect(() => {
     fetchExperience().then(data => {
-      setExperiences(data);
+      setExperiences(data || []);
     });
   }, []);
 
   return (
-    <section id="experience" className="relative py-24 bg-[#071A35]/20 border-y border-white/5 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        
+    <section id="experience" className="relative py-24 bg-white dark:bg-[#0B1120] overflow-hidden">
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-[#2563EB]/5 dark:bg-[#2563EB]/10 rounded-full blur-[140px] pointer-events-none" />
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
+      >
         {/* Title */}
-        <div className="flex flex-col items-center text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white font-space">
-            Work <span className="text-primary text-glow">Experience</span>
+        <div className="flex flex-col items-center text-center mb-14">
+          <span className="text-xs font-mono font-bold tracking-[0.2em] text-[#2563EB] uppercase block mb-2">
+            // Career Milestones
+          </span>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#172033] dark:text-white font-space">
+            Work Experience & <span className="text-[#2563EB]">Internships</span>
           </h2>
-          <div className="h-1 w-12 bg-primary mt-4 rounded-full" />
+          <p className="text-xs sm:text-sm text-[#64748B] dark:text-[#94A3B8] max-w-xl mt-3">
+            Industry exposure building commercial Flutter apps, integrating machine learning APIs, and deploying full-stack web platforms.
+          </p>
+          <div className="h-1 w-12 bg-[#2563EB] mt-4 rounded-full" />
         </div>
 
-        <div className="max-w-3xl mx-auto relative">
+        <div className="max-w-4xl mx-auto relative">
           
-          {/* Vertical Timeline Bar */}
-          <div className="absolute left-0 sm:left-1/2 top-4 bottom-4 w-[2px] bg-gradient-to-b from-primary to-transparent transform -translate-x-1/2 hidden sm:block" />
+          {/* Vertical Timeline Center Line */}
+          <div className="absolute left-4 md:left-1/2 top-4 bottom-4 w-[2px] bg-gradient-to-b from-[#2563EB] via-[#2563EB]/30 to-transparent transform md:-translate-x-1/2" />
 
-          <div className="space-y-12">
+          <div className="space-y-8">
             {experiences.map((exp, index) => (
-              <motion.div
+              <div
                 key={exp.id || index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`relative flex flex-col sm:flex-row items-start sm:items-center ${
-                  index % 2 === 0 ? 'sm:flex-row-reverse' : ''
+                className={`relative flex flex-col md:flex-row items-start md:items-center pl-10 md:pl-0 ${
+                  index % 2 === 0 ? 'md:flex-row-reverse' : ''
                 }`}
               >
                 {/* Timeline node */}
-                <div className="absolute left-0 sm:left-1/2 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2 shadow-[0_0_12px_rgba(10,132,255,0.8)] border-4 border-[#020B1C] z-20 hidden sm:block" />
+                <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-[#2563EB] rounded-full transform -translate-x-1/2 shadow-md shadow-[#2563EB]/50 border-4 border-white dark:border-[#0B1120] z-20" />
 
-                {/* Left/Right empty spacer for desktop layout balance */}
-                <div className="w-full sm:w-1/2" />
+                <div className="hidden md:block md:w-1/2" />
 
-                {/* Card Container */}
-                <div className="w-full sm:w-[45%] sm:mx-4">
-                  <div className="glass-card glass-card-hover p-6 md:p-8 rounded-2xl border border-white/5 transition-all duration-300 relative">
-                    <div className="flex items-center space-x-3 mb-4">
-                      <div className="p-2.5 rounded-lg bg-primary/10 border border-primary/20 text-primary flex items-center justify-center">
-                        <FiBriefcase className="w-5 h-5" />
-                      </div>
+                {/* Experience Card */}
+                <div className="w-full md:w-[46%] md:mx-4">
+                  <div className="glass-card p-5 sm:p-6 rounded-3xl border border-[#E2E8F0] dark:border-white/10 hover:border-[#2563EB]/40 transition-all duration-300 relative group shadow-sm hover:shadow-xl bg-white dark:bg-[#101B33]/70">
+                    
+                    {/* Header */}
+                    <div className="flex items-start justify-between gap-2 mb-2">
                       <div>
-                        <span className="text-xs font-bold tracking-[0.15em] text-primary uppercase">
-                          {exp.company}
+                        <span className="text-xs font-mono font-bold text-[#2563EB] tracking-wider uppercase">
+                          @{exp.company}
                         </span>
-                        <h3 className="text-lg md:text-xl font-bold text-white font-space">
+                        <h3 className="text-sm sm:text-base font-bold text-[#172033] dark:text-white font-space leading-tight mt-0.5">
                           {exp.job_title}
                         </h3>
                       </div>
+
+                      {exp.badge && (
+                        <span className="text-[9px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 flex-shrink-0">
+                          {exp.badge}
+                        </span>
+                      )}
                     </div>
 
-                    <div className="flex flex-wrap gap-4 text-xs font-semibold text-text-gray/80 mb-6 pb-4 border-b border-white/5">
-                      <span className="flex items-center gap-1.5">
-                        <FiCalendar className="w-3.5 h-3.5 text-primary" />
+                    {/* Metadata */}
+                    <div className="flex flex-wrap gap-3 text-xs font-mono text-[#64748B] dark:text-[#94A3B8] mb-3 pb-2.5 border-b border-[#E2E8F0] dark:border-white/5">
+                      <span className="flex items-center gap-1 text-[#172033] dark:text-white/90">
+                        <FiCalendar className="w-3.5 h-3.5 text-[#2563EB]" />
                         {exp.duration}
                       </span>
                       {exp.location && (
-                        <span className="flex items-center gap-1.5">
-                          <FiMapPin className="w-3.5 h-3.5 text-primary" />
+                        <span className="flex items-center gap-1">
+                          <FiMapPin className="w-3.5 h-3.5 text-[#2563EB]" />
                           {exp.location}
                         </span>
                       )}
                     </div>
 
-                    <div className="space-y-2.5">
-                      <h4 className="text-xs font-bold tracking-wider text-white/80 uppercase mb-2">
-                        Responsibilities:
-                      </h4>
-                      {exp.responsibilities_list && exp.responsibilities_list.map((resp, i) => (
-                        <div key={i} className="flex items-start space-x-3 text-text-gray">
-                          <span className="h-1.5 w-1.5 rounded-full bg-primary mt-2" />
-                          <p className="text-sm leading-relaxed">{resp}</p>
-                        </div>
+                    {/* Crisp 2-3 Bullet Points */}
+                    <ul className="space-y-2 mb-3.5">
+                      {(exp.responsibilities_list || []).slice(0, 3).map((resp, rIdx) => (
+                        <li key={rIdx} className="flex items-start text-xs text-[#64748B] dark:text-[#94A3B8] leading-relaxed">
+                          <FiCheckCircle className="w-3.5 h-3.5 text-[#2563EB] mr-2 flex-shrink-0 mt-0.5" />
+                          <span>{resp}</span>
+                        </li>
                       ))}
-                    </div>
+                    </ul>
+
+                    {/* Stack tags */}
+                    {exp.technologies && (
+                      <div className="flex flex-wrap gap-1 pt-2.5 border-t border-[#E2E8F0] dark:border-white/5 font-mono">
+                        {exp.technologies.map((t) => (
+                          <span
+                            key={t}
+                            className="text-[9px] px-2 py-0.5 rounded bg-black/5 dark:bg-white/5 text-[#172033] dark:text-blue-300 font-medium"
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+
                   </div>
                 </div>
 
-              </motion.div>
+              </div>
             ))}
           </div>
 
         </div>
-
-      </div>
+      </motion.div>
     </section>
   );
 }

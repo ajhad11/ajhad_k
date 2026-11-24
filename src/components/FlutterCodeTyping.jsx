@@ -1,8 +1,14 @@
 import { useState, useEffect } from 'react';
-import { FiCopy, FiCheck, FiTerminal } from 'react-icons/fi';
-import { SiFlutter } from 'react-icons/si';
+import { FiTerminal } from 'react-icons/fi';
+import { SiFlutter, SiReact, SiDjango, SiPython } from 'react-icons/si';
 
-const FLUTTER_CODE = `import 'package:flutter/material.dart';
+const SNIPPETS = [
+  {
+    language: 'Flutter',
+    fileName: 'main.dart',
+    iconType: 'flutter',
+    footerText: 'Flutter & Dart • Cross-Platform Mobile',
+    code: `import 'package:flutter/material.dart';
 
 void main() => runApp(const AjhadApp());
 
@@ -24,11 +30,69 @@ class AjhadApp extends StatelessWidget {
       ),
     );
   }
-}`;
+}`
+  },
+  {
+    language: 'React',
+    fileName: 'App.jsx',
+    iconType: 'react',
+    footerText: 'React 19 & Tailwind • Modern Web Apps',
+    code: `import React, { useState } from 'react';
 
-// Dart syntax token highlighter
+export default function App() {
+  const [developer] = useState({
+    name: 'Ajhad K',
+    role: 'Flutter • React • Django Developer',
+    stack: ['Flutter', 'React', 'Django', 'PostgreSQL']
+  });
+
+  return (
+    <div className="portfolio-app">
+      <header className="hero-section">
+        <h1>Welcome, I am {developer.name} 👋</h1>
+        <p>Building high-performance modern web apps</p>
+      </header>
+    </div>
+  );
+}`
+  },
+  {
+    language: 'Django',
+    fileName: 'views.py',
+    iconType: 'django',
+    footerText: 'Django REST Framework • Backend APIs',
+    code: `from rest_framework.views import APIView
+from rest_framework.response import Response
+
+class DeveloperProfileView(APIView):
+    """API endpoint for developer profile & capabilities"""
+
+    def get(self, request):
+        profile = {
+            "developer": "Ajhad K",
+            "title": "Flutter • React • Django Developer",
+            "database": ["PostgreSQL", "Supabase", "Firebase"],
+            "status": "Ready for production"
+        }
+        return Response(profile, status=200)`
+  }
+];
+
+// Universal syntax highlighter for Dart, React/JSX, and Python/Django
 const highlightLine = (line) => {
-  const commentIdx = line.indexOf('//');
+  // Check for comments
+  let commentIdx = -1;
+  const dSlash = line.indexOf('//');
+  const hash = line.indexOf('#');
+  
+  if (dSlash !== -1 && hash !== -1) {
+    commentIdx = Math.min(dSlash, hash);
+  } else if (dSlash !== -1) {
+    commentIdx = dSlash;
+  } else if (hash !== -1) {
+    commentIdx = hash;
+  }
+
   let codePart = line;
   let commentPart = null;
   if (commentIdx !== -1) {
@@ -36,7 +100,7 @@ const highlightLine = (line) => {
     commentPart = line.slice(commentIdx);
   }
 
-  const tokenRegex = /('(?:[^'\\\n]|\\.)*'|"(?:[^"\\\n]|\\.)*")|(@[a-zA-Z0-9_]+)|(\b[a-zA-Z_$][a-zA-Z0-9_$]*\s*:)|(\b(?:import|class|extends|abstract|const|final|return|super|void|true|false|new|this|async|await)\b)|(\b(?:Widget|BuildContext|StatelessWidget|StatefulWidget|MaterialApp|ThemeData|Scaffold|Center|Text|TextAlign|AjhadApp|String|int|double|bool)\b)|(\b(?:build|runApp|main)\b)|(\b\d+(?:\.\d+)?\b)|([{}()[\]<>,;.<>=+*\/!?:&|~^-])|(\s+)|([a-zA-Z_$][a-zA-Z0-9_$]*)/g;
+  const tokenRegex = /("""[\s\S]*?"""|'''[\s\S]*?'''|'(?:[^'\\\n]|\\.)*'|"(?:[^"\\\n]|\\.)*")|(@[a-zA-Z0-9_]+)|(\b[a-zA-Z_$][a-zA-Z0-9_$]*\s*:)|(\b(?:import|from|class|extends|abstract|const|final|return|super|void|true|false|new|this|async|await|def|export|default|function|const|let|var|if|else|self)\b)|(\b(?:Widget|BuildContext|StatelessWidget|StatefulWidget|MaterialApp|ThemeData|Scaffold|Center|Text|TextAlign|AjhadApp|String|int|double|bool|React|useState|APIView|Response|DeveloperProfileView)\b)|(\b(?:build|runApp|main|get|render)\b)|(\b\d+(?:\.\d+)?\b)|([{}()[\]<>,;.<>=+*\/!?:&|~^-])|(\s+)|([a-zA-Z_$][a-zA-Z0-9_$]*)/g;
 
   const tokens = [];
   let match;
@@ -54,7 +118,7 @@ const highlightLine = (line) => {
     } else if (type) {
       cls = 'text-amber-600 dark:text-yellow-300 font-semibold';
     } else if (method) {
-      cls = 'text-blue-600 dark:text-blue-400';
+      cls = 'text-blue-600 dark:text-blue-400 font-semibold';
     } else if (num) {
       cls = 'text-pink-600 dark:text-pink-400 font-mono';
     } else if (punct) {
@@ -75,62 +139,79 @@ const highlightLine = (line) => {
 };
 
 export default function FlutterCodeTyping() {
+  const [snippetIndex, setSnippetIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
-  const [copied, setCopied] = useState(false);
   const [isCompleted, setIsCompleted] = useState(false);
 
+  const currentSnippet = SNIPPETS[snippetIndex];
+  const fullCode = currentSnippet.code;
+
   useEffect(() => {
-    if (charIndex >= FLUTTER_CODE.length) {
+    // If typing for current snippet completed
+    if (charIndex >= fullCode.length) {
       setIsCompleted(true);
-      const restartTimer = setTimeout(() => {
-        setCharIndex(0);
+      
+      // Wait for 10 seconds after typing finishes, then switch to next language
+      const waitTimer = setTimeout(() => {
         setIsCompleted(false);
+        setCharIndex(0);
+        setSnippetIndex((prev) => (prev + 1) % SNIPPETS.length);
       }, 10000);
-      return () => clearTimeout(restartTimer);
+
+      return () => clearTimeout(waitTimer);
     }
 
-    const currentChar = FLUTTER_CODE[charIndex];
+    // Typing logic
+    const currentChar = fullCode[charIndex];
     let step = 1;
-    let delay = 18;
+    let delay = 16;
 
     if (currentChar === ' ') {
       let nextIdx = charIndex;
-      while (nextIdx < FLUTTER_CODE.length && FLUTTER_CODE[nextIdx] === ' ') {
+      while (nextIdx < fullCode.length && fullCode[nextIdx] === ' ') {
         nextIdx++;
       }
       step = Math.max(1, nextIdx - charIndex);
       delay = 6;
     } else if (currentChar === '\n') {
-      delay = 55;
-    } else if (currentChar === ';' || currentChar === '{') {
-      delay = 35;
+      delay = 45;
+    } else if (currentChar === ';' || currentChar === '{' || currentChar === ':') {
+      delay = 30;
     }
 
     const timer = setTimeout(() => {
-      setCharIndex((prev) => Math.min(FLUTTER_CODE.length, prev + step));
+      setCharIndex((prev) => Math.min(fullCode.length, prev + step));
     }, delay);
 
     return () => clearTimeout(timer);
-  }, [charIndex]);
+  }, [charIndex, snippetIndex, fullCode]);
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(FLUTTER_CODE);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
-  const typedText = FLUTTER_CODE.slice(0, charIndex);
+  const typedText = fullCode.slice(0, charIndex);
   const lines = typedText.split('\n');
+
+  // Render header icon according to active snippet
+  const renderIcon = () => {
+    if (currentSnippet.iconType === 'flutter') {
+      return <SiFlutter className="w-3.5 h-3.5 text-[#02569B]" />;
+    }
+    if (currentSnippet.iconType === 'react') {
+      return <SiReact className="w-3.5 h-3.5 text-[#61DAFB]" />;
+    }
+    if (currentSnippet.iconType === 'django') {
+      return <SiDjango className="w-3.5 h-3.5 text-emerald-500" />;
+    }
+    return <SiPython className="w-3.5 h-3.5 text-amber-500" />;
+  };
 
   return (
     <div className="relative w-full max-w-lg lg:max-w-none">
       {/* Background Ambient Glow */}
-      <div className="absolute -inset-2 bg-gradient-to-tr from-[#2563EB]/15 via-cyan-500/10 to-purple-500/10 rounded-3xl blur-2xl pointer-events-none" />
+      <div className="absolute -inset-2 bg-gradient-to-tr from-[#2563EB]/15 via-cyan-500/10 to-emerald-500/10 rounded-3xl blur-2xl pointer-events-none" />
 
       {/* Code Window */}
       <div className="relative w-full rounded-2xl overflow-hidden border border-[#E2E8F0] dark:border-white/10 bg-white dark:bg-[#070D18] shadow-xl">
         
-        {/* Simple macOS Header Bar */}
+        {/* macOS Header Bar */}
         <div className="px-4 py-3 bg-[#F8FAFC] dark:bg-[#0B1120] border-b border-[#E2E8F0] dark:border-white/10 flex items-center justify-between select-none">
           <div className="flex items-center gap-3">
             <div className="flex items-center space-x-1.5">
@@ -139,33 +220,23 @@ export default function FlutterCodeTyping() {
               <span className="w-3 h-3 rounded-full bg-[#27c93f] inline-block" />
             </div>
 
-            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white dark:bg-[#101B33] text-[#172033] dark:text-white border border-[#E2E8F0] dark:border-white/10 text-xs font-mono font-medium shadow-sm">
-              <SiFlutter className="w-3.5 h-3.5 text-[#02569B]" />
-              <span>main.dart</span>
+            {/* Active file tab */}
+            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white dark:bg-[#101B33] text-[#172033] dark:text-white border border-[#E2E8F0] dark:border-white/10 text-xs font-mono font-medium shadow-sm transition-all">
+              {renderIcon()}
+              <span>{currentSnippet.fileName}</span>
             </div>
           </div>
 
-          <button
-            onClick={handleCopy}
-            className="flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-mono text-[#64748B] dark:text-[#94A3B8] hover:text-[#172033] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition-colors cursor-pointer border border-[#E2E8F0] dark:border-white/10"
-            title="Copy code"
-          >
-            {copied ? (
-              <>
-                <FiCheck className="w-3.5 h-3.5 text-emerald-500" />
-                <span className="text-emerald-500 text-[11px]">Copied</span>
-              </>
-            ) : (
-              <>
-                <FiCopy className="w-3.5 h-3.5" />
-                <span className="text-[11px]">Copy</span>
-              </>
-            )}
-          </button>
+          {/* Language indicator badge */}
+          <div className="flex items-center gap-2">
+            <span className="px-2 py-0.5 rounded-full bg-blue-500/10 text-[#2563EB] text-[10px] font-mono font-semibold">
+              {currentSnippet.language}
+            </span>
+          </div>
         </div>
 
         {/* Code Content Area */}
-        <div className="p-4 sm:p-5 font-mono text-xs sm:text-[13px] leading-[1.7] select-text min-h-[290px] max-h-[320px] overflow-hidden bg-white dark:bg-[#070D18]">
+        <div className="p-4 sm:p-5 font-mono text-xs sm:text-[13px] leading-[1.7] select-text min-h-[300px] max-h-[330px] overflow-hidden bg-white dark:bg-[#070D18]">
           {lines.map((line, idx) => {
             const isCurrentLine = idx === lines.length - 1;
             const lineTokens = highlightLine(line);
@@ -196,13 +267,15 @@ export default function FlutterCodeTyping() {
           })}
         </div>
 
-        {/* Simple Bottom Status Bar */}
+        {/* Bottom Status Bar */}
         <div className="px-4 py-2 bg-[#F8FAFC] dark:bg-[#0B1120] border-t border-[#E2E8F0] dark:border-white/10 flex items-center justify-between text-[11px] font-mono text-[#64748B] dark:text-[#94A3B8]">
           <div className="flex items-center gap-1.5">
             <FiTerminal className="w-3 h-3 text-[#2563EB]" />
-            <span>Flutter & Dart</span>
+            <span className="transition-all">{currentSnippet.footerText}</span>
           </div>
-          <span className="text-emerald-600 dark:text-emerald-400 font-medium">Ready</span>
+          <span className="text-emerald-600 dark:text-emerald-400 font-medium">
+            {isCompleted ? '10s preview' : 'Typing...'}
+          </span>
         </div>
 
       </div>

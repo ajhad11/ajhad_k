@@ -1,41 +1,32 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
-  FiCheckCircle, 
   FiFileText, 
-  FiLayers, 
-  FiCpu, 
-  FiDatabase, 
-  FiServer,
+  FiMapPin, 
+  FiBookOpen, 
   FiArrowRight,
-  FiAward,
-  FiMapPin,
-  FiBookOpen
+  FiCheckCircle,
+  FiCode
 } from 'react-icons/fi';
-import { SiFlutter, SiDotnet, SiPython, SiPostgresql } from 'react-icons/si';
+import { SiFlutter, SiReact, SiDjango } from 'react-icons/si';
 import { scrollToSection } from './Navbar';
 
 export default function About() {
-  const pillars = [
+  const highlights = [
     {
-      icon: <SiFlutter className="w-5 h-5 text-[#0A84FF]" />,
-      title: 'Cross-Platform Mobile (Flutter)',
-      desc: 'Building responsive 60 FPS applications with BLoC & Provider reactive architecture, offline SQLite caching, and native device channel integrations.'
+      icon: <SiFlutter className="w-5 h-5 text-[#02569B]" />,
+      title: 'Flutter Mobile Engineering',
+      desc: 'Developing responsive Android & iOS apps with Provider, BLoC, and local database caching.'
     },
     {
-      icon: <SiDotnet className="w-5 h-5 text-[#512BD4]" />,
-      title: '.NET & Enterprise Backends',
-      desc: 'Developing scalable C# Web APIs and Windows desktop solutions with Entity Framework Core, LINQ, and ACID transactional reliability.'
+      icon: <SiReact className="w-5 h-5 text-[#61DAFB]" />,
+      title: 'React Web Development',
+      desc: 'Building modern, interactive web interfaces with React, JavaScript (ES6+), and Tailwind CSS.'
     },
     {
-      icon: <FiCpu className="w-5 h-5 text-[#2563EB]" />,
-      title: 'Applied AI & RAG Pipelines',
-      desc: 'Connecting models to real data using Retrieval-Augmented Generation (RAG), Model Context Protocol (MCP) servers, and structured function calling.'
-    },
-    {
-      icon: <FiDatabase className="w-5 h-5 text-emerald-500" />,
-      title: 'Relational Database Architecture',
-      desc: 'Designing normalized schemas and high-throughput queries across PostgreSQL, Supabase real-time sync, and SQL Server.'
+      icon: <SiDjango className="w-5 h-5 text-[#092E20] dark:text-emerald-400" />,
+      title: 'Django REST & Databases',
+      desc: 'Architecting secure backend REST APIs, PostgreSQL schemas, and real-time Supabase integrations.'
     }
   ];
 
@@ -48,7 +39,7 @@ export default function About() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.15 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
+        className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
       >
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -62,129 +53,112 @@ export default function About() {
         </div>
 
         {/* 2-Column Clean Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
-          {/* Left Column: Visual Profile & Credentials Card */}
-          <div className="lg:col-span-5">
-            <div className="glass-card p-6 sm:p-7 rounded-3xl border border-[#E2E8F0] dark:border-white/10 shadow-xl space-y-5 bg-white dark:bg-[#0B1120]">
+          {/* Left Column: Prominent Profile Photo Card */}
+          <div className="lg:col-span-5 flex flex-col items-center">
+            <div className="glass-card p-6 rounded-3xl border border-[#E2E8F0] dark:border-white/10 shadow-xl bg-white dark:bg-[#0B1120] w-full max-w-sm text-center space-y-4">
               
-              {/* Profile Header */}
-              <div className="flex items-center gap-4">
-                <div className="w-16 h-16 rounded-2xl overflow-hidden border-2 border-[#2563EB]/40 flex-shrink-0 shadow-md">
-                  <img
-                    src="/assets/profile.jpg"
-                    alt="AJHAD K"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold font-space text-[#172033] dark:text-white">
-                    AJHAD K
-                  </h3>
-                  <p className="text-xs font-mono text-[#2563EB] font-semibold">
-                    Software Developer
-                  </p>
-                  <p className="text-[11px] text-[#64748B] dark:text-[#94A3B8] flex items-center gap-1 mt-0.5">
-                    <FiMapPin className="w-3 h-3 text-[#2563EB]" />
-                    <span>Kerala, India</span>
-                  </p>
-                </div>
+              {/* Profile Image */}
+              <div className="w-44 h-52 sm:w-48 sm:h-56 mx-auto rounded-2xl overflow-hidden border-2 border-[#2563EB]/40 shadow-lg bg-slate-100 dark:bg-slate-800">
+                <img
+                  src="/assets/profile.jpg"
+                  alt="AJHAD K"
+                  className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+                />
               </div>
 
-              {/* Education Box */}
-              <div className="p-4 rounded-2xl bg-black/[0.02] dark:bg-white/[0.03] border border-[#E2E8F0] dark:border-white/5 space-y-2">
-                <div className="flex items-center gap-2 text-xs font-bold text-[#172033] dark:text-white font-space">
+              {/* Name & Title */}
+              <div>
+                <h3 className="text-xl font-bold font-space text-[#172033] dark:text-white">
+                  AJHAD K
+                </h3>
+                <p className="text-xs font-mono text-[#2563EB] font-semibold mt-0.5">
+                  Flutter &bull; React &bull; Django Developer
+                </p>
+                <p className="text-xs text-[#64748B] dark:text-[#94A3B8] flex items-center justify-center gap-1.5 mt-1.5">
+                  <FiMapPin className="w-3.5 h-3.5 text-[#2563EB]" />
+                  <span>Calicut, Kerala, India</span>
+                </p>
+              </div>
+
+              {/* Education Snippet */}
+              <div className="p-3 rounded-xl bg-black/[0.02] dark:bg-white/[0.03] border border-[#E2E8F0] dark:border-white/5 text-xs text-left">
+                <div className="flex items-center gap-2 font-bold text-[#172033] dark:text-white">
                   <FiBookOpen className="w-4 h-4 text-[#2563EB]" />
                   <span>BSc Computer Science</span>
                 </div>
-                <p className="text-xs text-[#64748B] dark:text-[#94A3B8]">
-                  University of Calicut, Kerala &bull; Graduate
+                <p className="text-[11px] text-[#64748B] dark:text-[#94A3B8] mt-0.5">
+                  Calicut University &bull; Graduate
                 </p>
-                <div className="flex items-center gap-2 text-[11px] text-emerald-600 dark:text-emerald-400 font-mono font-semibold pt-1">
-                  <FiAward className="w-3.5 h-3.5" />
-                  <span>Grade A+ Certified in Flutter Development</span>
-                </div>
               </div>
 
-              {/* Quick Highlights */}
-              <div className="space-y-2 text-xs font-mono">
-                <div className="flex items-center justify-between p-2.5 rounded-xl bg-black/[0.02] dark:bg-white/[0.02] border border-[#E2E8F0] dark:border-white/5">
-                  <span className="text-[#64748B] dark:text-[#94A3B8]">Primary Stack</span>
-                  <span className="font-semibold text-[#172033] dark:text-white">Flutter &bull; .NET &bull; AI</span>
-                </div>
-                <div className="flex items-center justify-between p-2.5 rounded-xl bg-black/[0.02] dark:bg-white/[0.02] border border-[#E2E8F0] dark:border-white/5">
-                  <span className="text-[#64748B] dark:text-[#94A3B8]">Industry Experience</span>
-                  <span className="font-semibold text-emerald-500">3 Production Internships</span>
-                </div>
-                <div className="flex items-center justify-between p-2.5 rounded-xl bg-black/[0.02] dark:bg-white/[0.02] border border-[#E2E8F0] dark:border-white/5">
-                  <span className="text-[#64748B] dark:text-[#94A3B8]">Availability</span>
-                  <span className="font-semibold text-[#2563EB]">Immediate / Full-Time</span>
-                </div>
-              </div>
-
-              {/* CV Action */}
+              {/* Download CV Action */}
               <a
                 href="/assets/doc/cv.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3 rounded-xl font-bold text-xs text-white bg-[#2563EB] hover:bg-[#1D4ED8] transition-all flex items-center justify-center gap-2 shadow-sm"
+                className="w-full py-3 rounded-xl font-bold text-xs text-white bg-[#2563EB] hover:bg-[#1D4ED8] transition-all flex items-center justify-center gap-2 shadow-sm cursor-pointer"
               >
                 <FiFileText className="w-4 h-4" />
-                <span>View Full Resume (PDF)</span>
+                <span>Download CV (PDF)</span>
               </a>
 
             </div>
           </div>
 
-          {/* Right Column: Narrative & 4 Clean Capability Pillars */}
+          {/* Right Column: Clean Bio & Highlights */}
           <div className="lg:col-span-7 space-y-6">
             
             <div className="space-y-3">
               <h3 className="text-2xl sm:text-3xl font-bold text-[#172033] dark:text-white font-space leading-snug">
-                Engineering Practical, Scalable, and User-Focused Software
+                Passionate about building fast, intuitive, and impactful software.
               </h3>
-              <p className="text-sm text-[#64748B] dark:text-[#94A3B8] leading-relaxed">
-                I am a software developer with hands-on experience delivering cross-platform mobile apps, enterprise business suites, and AI-assisted workflows. My approach focuses on clean architecture, high UI responsiveness, reliable databases, and measurable business impact.
+              <p className="text-sm sm:text-base text-[#64748B] dark:text-[#94A3B8] leading-relaxed">
+                I am a software developer with hands-on experience delivering cross-platform mobile apps using Flutter and responsive web applications with React and Django.
+              </p>
+              <p className="text-sm sm:text-base text-[#64748B] dark:text-[#94A3B8] leading-relaxed">
+                My core strength lies in clean architecture, smooth UI interactions, and solid backend integrations using PostgreSQL, Supabase, and Firebase. I love turning ideas into reliable, production-ready code that delivers genuine value.
               </p>
             </div>
 
-            {/* 4 Pillars Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
-              {pillars.map((pillar) => (
+            {/* 3 Core Capability Highlights */}
+            <div className="space-y-3 pt-2">
+              {highlights.map((item) => (
                 <div
-                  key={pillar.title}
-                  className="glass-card p-4 rounded-2xl border border-[#E2E8F0] dark:border-white/5 hover:border-[#2563EB]/40 transition-all duration-200 group hover:-translate-y-0.5 bg-white dark:bg-[#101B33]/60"
+                  key={item.title}
+                  className="glass-card p-4 rounded-2xl border border-[#E2E8F0] dark:border-white/5 hover:border-[#2563EB]/40 transition-all duration-200 bg-white dark:bg-[#101B33]/60 flex items-start gap-3.5"
                 >
-                  <div className="flex items-center gap-2.5 mb-2">
-                    <div className="p-2 rounded-xl bg-black/5 dark:bg-white/5 group-hover:scale-105 transition-transform">
-                      {pillar.icon}
-                    </div>
-                    <h4 className="text-xs font-bold text-[#172033] dark:text-white font-space leading-tight">
-                      {pillar.title}
-                    </h4>
+                  <div className="p-2.5 rounded-xl bg-black/5 dark:bg-white/5 flex-shrink-0 mt-0.5">
+                    {item.icon}
                   </div>
-                  <p className="text-xs text-[#64748B] dark:text-[#94A3B8] leading-relaxed">
-                    {pillar.desc}
-                  </p>
+                  <div>
+                    <h4 className="text-sm font-bold text-[#172033] dark:text-white font-space">
+                      {item.title}
+                    </h4>
+                    <p className="text-xs text-[#64748B] dark:text-[#94A3B8] mt-1 leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
 
-            {/* Bottom Contact Trigger */}
-            <div className="pt-2 flex items-center gap-3">
+            {/* Simple CTAs */}
+            <div className="pt-2 flex items-center gap-4">
               <button
                 onClick={() => scrollToSection('contact')}
-                className="px-5 py-2.5 rounded-xl font-bold text-xs text-white bg-[#101B33] dark:bg-[#2563EB] hover:bg-[#2563EB] dark:hover:bg-blue-600 transition-colors flex items-center gap-2 cursor-pointer shadow-sm"
+                className="px-6 py-3 rounded-xl font-bold text-xs text-white bg-[#2563EB] hover:bg-[#1D4ED8] transition-colors flex items-center gap-2 cursor-pointer shadow-sm"
               >
-                <span>Let's Discuss Opportunities</span>
+                <span>Get In Touch</span>
                 <FiArrowRight className="w-3.5 h-3.5" />
               </button>
 
               <button
                 onClick={() => scrollToSection('projects')}
-                className="px-5 py-2.5 rounded-xl font-semibold text-xs text-[#64748B] dark:text-[#94A3B8] hover:text-[#172033] dark:hover:text-white transition-colors cursor-pointer"
+                className="px-5 py-3 rounded-xl font-semibold text-xs text-[#64748B] dark:text-[#94A3B8] hover:text-[#172033] dark:hover:text-white transition-colors cursor-pointer"
               >
-                Browse My Work &rarr;
+                Browse Projects &rarr;
               </button>
             </div>
 

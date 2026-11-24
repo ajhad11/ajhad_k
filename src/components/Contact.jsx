@@ -32,8 +32,8 @@ export default function Contact() {
   const roleTypes = [
     'Full-Time Software Developer',
     'Flutter Mobile Engineering',
-    '.NET Enterprise Solutions',
-    'AI / RAG Integration',
+    'React Web Development',
+    'Django Backend / Full-Stack',
     'General Inquiry'
   ];
 

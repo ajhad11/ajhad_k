@@ -14,11 +14,11 @@ export default function Footer() {
           <p className="text-sm font-bold text-[#172033] dark:text-white font-space">
             AJHAD <span className="text-[#2563EB]">K</span>
             <span className="text-xs font-normal text-[#64748B] dark:text-[#94A3B8] ml-2">
-              Software Developer &bull; Flutter | .NET | AI Integration
+              Software Developer &bull; Flutter | React | Django
             </span>
           </p>
           <p className="text-xs text-[#64748B] dark:text-[#94A3B8]/70">
-            &copy; {currentYear} AJHAD K. Built with React 19, Tailwind CSS, .NET architecture principles, and Three.js.
+            &copy; {currentYear} AJHAD K. All rights reserved.
           </p>
         </div>
 

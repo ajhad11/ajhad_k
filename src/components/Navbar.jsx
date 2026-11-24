@@ -45,7 +45,6 @@ export default function Navbar() {
     { name: 'About', href: 'about' },
     { name: 'Skills', href: 'skills' },
     { name: 'Projects', href: 'projects' },
-    { name: 'AI & Enterprise', href: 'ai-solutions' },
     { name: 'Experience', href: 'experience' },
     { name: 'Contact', href: 'contact' },
   ];
@@ -119,22 +118,19 @@ export default function Navbar() {
         {/* Brand Logo */}
         <button
           onClick={() => handleNavClick('home')}
-          className="flex items-center gap-2.5 text-left group cursor-pointer focus:outline-none"
+          className="flex flex-col text-left group cursor-pointer focus:outline-none"
         >
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#101B33] to-[#2563EB] flex items-center justify-center text-white font-bold text-base shadow-sm group-hover:scale-105 transition-transform">
-            A
+          <div className="flex items-center gap-1.5">
+            <span className="font-space font-bold text-base tracking-tight text-[#172033] dark:text-white group-hover:text-[#2563EB] transition-colors">
+              AJHAD K
+            </span>
+            <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#2563EB]/10 text-[#2563EB] dark:bg-[#2563EB]/20 dark:text-blue-400 font-semibold">
+              DEV
+            </span>
           </div>
-          <div>
-            <div className="flex items-center gap-1.5">
-              <span className="font-space font-bold text-base tracking-tight text-[#172033] dark:text-white group-hover:text-[#2563EB] transition-colors">
-                AJHAD K
-              </span>
-              <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#2563EB]/10 text-[#2563EB] dark:bg-[#2563EB]/20 dark:text-blue-400 font-semibold">
-                DEV
-              </span>
-            </div>
-          
-          </div>
+          <p className="text-[10px] text-[#64748B] dark:text-[#94A3B8] font-medium leading-tight mt-0.5">
+            Flutter &bull; React &bull; Django
+          </p>
         </button>
 
         {/* Desktop Navigation Links */}

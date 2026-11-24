@@ -7,8 +7,6 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
-import AISolutions from './components/AISolutions';
-import EnterpriseDev from './components/EnterpriseDev';
 import Experience from './components/Experience';
 import Certifications from './components/Certifications';
 import Contact from './components/Contact';
@@ -56,8 +54,6 @@ export default function App() {
                   <About />
                   <Skills />
                   <Projects />
-                  <AISolutions />
-                  <EnterpriseDev />
                   <Experience />
                   <Certifications />
                   <Contact />

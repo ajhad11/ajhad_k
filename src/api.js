@@ -12,9 +12,9 @@ export const FALLBACK_DATA = {
   // 1. Personal & Brand Details
   developer: {
     name: 'AJHAD K',
-    title: 'Software Developer | Flutter & .NET Developer | AI Integration Engineer',
-    headline: 'Flutter • .NET • Full-Stack • AI Integration',
-    summary: 'Software Developer focused on building scalable applications, cross-platform software, enterprise management systems, backend solutions, and AI-powered applications. Experienced with mobile development, web technologies, database systems, and modern software architecture, with a growing focus on AI integrations, RAG pipelines, MCP servers, and intelligent automation.',
+    title: 'Software Developer | Flutter • React • Django Developer',
+    headline: 'Flutter • React • Django • Full-Stack',
+    summary: 'Software Developer focused on building high-performance cross-platform mobile apps with Flutter and modern, scalable web applications with React and Django. Experienced with state management, RESTful APIs, database design (PostgreSQL, Supabase, Firebase), and clean software architecture.',
     location: 'Kerala, India',
     email: 'ajhadk453@gmail.com',
     phone: '+971 56 200 1042',

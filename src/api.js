@@ -17,7 +17,7 @@ export const FALLBACK_DATA = {
     summary: 'Software Developer focused on building scalable applications, cross-platform software, enterprise management systems, backend solutions, and AI-powered applications. Experienced with mobile development, web technologies, database systems, and modern software architecture, with a growing focus on AI integrations, RAG pipelines, MCP servers, and intelligent automation.',
     location: 'Kerala, India',
     email: 'ajhadk453@gmail.com',
-    phone: '+971 56 200 1042',
+    phone: '+91 95620 01042',
     github: 'https://github.com/ajhad11',
     linkedin: 'https://linkedin.com/in/ajhad-k',
     resume_url: '/assets/doc/cv.pdf',

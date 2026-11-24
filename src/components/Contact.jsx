@@ -157,8 +157,8 @@ export default function Contact() {
                 {/* WhatsApp */}
                 <div className="p-3 rounded-xl bg-black/5 dark:bg-white/5 border border-[#E2E8F0] dark:border-white/5">
                   <span className="text-[10px] text-[#64748B] dark:text-[#94A3B8] block">DIRECT_CALL_WHATSAPP</span>
-                  <a href="https://wa.me/971562001042" target="_blank" rel="noopener noreferrer" className="font-semibold text-emerald-500 hover:underline">
-                    +971 56 200 1042
+                  <a href="https://wa.me/919562001042" target="_blank" rel="noopener noreferrer" className="font-semibold text-emerald-500 hover:underline">
+                    +91 95620 01042
                   </a>
                 </div>
 
